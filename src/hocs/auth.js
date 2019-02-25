@@ -1,13 +1,22 @@
-import React from 'react';
+import React from 'react'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
 
-const Auth = () => {
-
-    return (
-        <div>
-            Auth
-        </div>
-    );
-
+const auth = (ComponentToWrap) => {
+    return class WrappedComponent extends React.Component {
+        render () {
+        return (
+            this.props.currentUser ? <ComponentToWrap />
+            : <Redirect to='/login' />
+        )
+        }
+    }
 }
 
-export default Auth
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.authentication.currentUser
+    }
+}
+
+export default connect(mapStateToProps)(auth)

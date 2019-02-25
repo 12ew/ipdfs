@@ -8,13 +8,12 @@ import {
     GET_USER,
     LOGOUT
 } from './types'
-import { url } from 'inspector';
 
 // FETCH ALL BOOKS
 
 export function fetchAllBooks() {
     return (dispatch) => {
-        fetch(url)
+        fetch(`http://localhost:3000/api/v1/books`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_ALL_BOOKS, payload: data })
@@ -26,7 +25,7 @@ export function fetchAllBooks() {
 
 export function fetchAllBooksByAuthor(id) {
     return (dispatch) => {
-        fetch(url)
+        fetch(`http://localhost:3000/api/v1/authors/${id}/books`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_BOOKS_BY_AUTHOR, payload: data })
@@ -38,7 +37,7 @@ export function fetchAllBooksByAuthor(id) {
 
 export function fetchAllBooksByGenre(id) {
     return (dispatch) => {
-        fetch(url)
+        fetch(`http://localhost:3000/api/v1/genres/${id}/books`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_BOOKS_BY_GENRE, payload: data })
@@ -48,9 +47,9 @@ export function fetchAllBooksByGenre(id) {
 
 // ADD NEW BOOK
 
-export function addNewBook(newBook, id) {
+export function addNewBook(newBook) {
     return(dispatch) => {
-        fetch(url, {
+        fetch(`http://localhost:3000/api/v1/books`, {
             method: 'POST',
             headers: { 
                 'Content-type': 'application/json',
@@ -67,9 +66,9 @@ export function addNewBook(newBook, id) {
 
 // ADD NEW AUTHOR
 
-export function addNewAuthor(newAuthor, id) {
+export function addNewAuthor(newAuthor) {
     return(dispatch) => {
-        fetch(url, {
+        fetch(`http://localhost:3000/api/v1/authors`, {
             method: 'POST',
             headers: { 
                 'Content-type': 'application/json',
@@ -86,9 +85,9 @@ export function addNewAuthor(newAuthor, id) {
 
 // ADD NEW GENRE
 
-export function addNewGenre(newGenre, id) {
+export function addNewGenre(newGenre) {
     return(dispatch) => {
-        fetch(url, {
+        fetch(`http://localhost:3000/api/v1/authors`, {
             method: 'POST',
             headers: { 
                 'Content-type': 'application/json',
@@ -126,7 +125,7 @@ export function getReauth() {
             }
         }
         return(dispatch) => {
-            fetch(url, options)
+            fetch(`http://localhost:3000/api/v1/login`, options)
             .then(resp => resp.json())
             .then(user => {
                 dispatch(getLogin(user))

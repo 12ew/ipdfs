@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Switch, withRouter } from 'react-router-dom'
+import Header from "./components/header";
+import Login from './components/login';
+import { getReauth } from './actions/index'
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getReauth()
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header className="header"/>
+          <Switch>
+            <div>
+
+              <Route exact path="/login" component={Login}/>
+
+            </div>
+
+          </Switch>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    // currentUser: state.authentication.currentUser
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { getReauth })(App));

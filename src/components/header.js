@@ -5,7 +5,7 @@ class header extends Component {
     render() {
         return (
             <div>
-                <h3>Header</h3>
+                <h1>iPDFS</h1>
             </div>
         );
     }
