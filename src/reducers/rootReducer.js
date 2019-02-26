@@ -5,7 +5,7 @@ import { authorReducer } from "./authorReducer";
 import { userReducer } from "./userReducer";
 
 const rootReducer = combineReducers({
-    books:bookReducer,
+    books: bookReducer,
     authors: authorReducer,
     genres: genreReducer,
     users: userReducer

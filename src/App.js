@@ -6,6 +6,7 @@ import Header from "./components/header";
 import Login from './components/login';
 import { getReauth } from './actions/index'
 import { connect } from 'react-redux';
+import BookView from './components/BookView';
 
 class App extends Component {
 
@@ -17,10 +18,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header className="header"/>
+        
           <Switch>
             <div>
 
               <Route exact path="/login" component={Login}/>
+              <Route exact path="/home" component={BookView}/>
 
             </div>
 
