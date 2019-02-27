@@ -73,17 +73,6 @@ render() {
         })
     }
 
-    // const options = authorOptions().map(author => {
-    //     return [{ key: 'author', text: `${author.name}`, value: `${author.id}` }]
-    // })
-
-    // console.log(options)
-
-    // this.props.authors.authorsList.map(author => {return `${author.id} - ${author.name}`})
-
-    // console.log(authorOptions())
-
-    // console.log(this.props.authors.authorsList)
 
     return (
         <div className = "create-book">
