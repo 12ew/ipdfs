@@ -48,18 +48,43 @@ class addBook extends Component {
 
 
     handleChange = (e) => {
-        console.log(e.target.value);
+        console.log(e.target);
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     componentDidMount() {
-        console.log(this.props)
-        // this.props.fetchAllAuthors()
+        this.props.fetchAllAuthors()
+        this.props.fetchAllGenres()
     }
 
 render() {
+
+    const authorOptions = () => {
+        return this.props.authors.authorsList.map(author => {
+            return { key: `${author.id}`, text: `${author.name}`, value: `${author.id}` }
+        })
+    }
+
+    const genreOptions = () => {
+        return this.props.genres.genresList.map(genre => {
+            return { key: `${genre.id}`, text: `${genre.name}`, value: `${genre.id}` }
+        })
+    }
+
+    // const options = authorOptions().map(author => {
+    //     return [{ key: 'author', text: `${author.name}`, value: `${author.id}` }]
+    // })
+
+    // console.log(options)
+
+    // this.props.authors.authorsList.map(author => {return `${author.id} - ${author.name}`})
+
+    // console.log(authorOptions())
+
+    // console.log(this.props.authors.authorsList)
+
     return (
         <div className = "create-book">
             <div id="create-form-header">
@@ -73,10 +98,10 @@ render() {
                     <Form.Field control={Input} value={this.state.arabic_title} label='Arabic Title' placeholder='شرح حديث جبريل لشيخ الإسلام ابن تيمية' onChange={this.handleChange} name="arabic_title"/>
                     
                     <Form.Field control={Input} value={this.state.language} label='Language' placeholder='Arabic'  onChange={this.handleChange} name="language" />
-                    
-                    <Form.Field control={Input} value={this.state.author_id} label='Author' placeholder='Ibn Taymiyyah' onChange={this.handleChange} name="author_id"/>
-                        
-                    < Form.Field control = {Input} value={this.state.genre_id} label = 'Genre' placeholder = 'Aqeedah' id = "item-genre_id" onChange={this.handleChange} name="genre_id"/>
+
+                    <Form.Field control={Select}  placeholder='Author' options={authorOptions()} onChange={this.handleChange}/>
+
+                    <Form.Field control={Select} placeholder='Genre' options={genreOptions()} onChange={this.handleChange}/> 
 
                     <Form.Field control={Input} value={this.state.num_pages} type="number" min="0" label='Pages' placeholder='345' id="item-create-from" onChange={this.handleChange} name="num_pages"/>
                     
@@ -95,8 +120,10 @@ render() {
 
 const mapStateToProps = (state) => {
     return {
-        books: state.books
+        books: state.books,
+        authors: state.authors,
+        genres: state.genres
     }
 }
 
-export default connect(mapStateToProps, { addNewBook })(addBook)
+export default connect(mapStateToProps, { addNewBook, fetchAllAuthors, fetchAllGenres  })(addBook)

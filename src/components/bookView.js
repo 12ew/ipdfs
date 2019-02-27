@@ -13,7 +13,6 @@ class BookView extends React.Component {
 
     render(){
         console.log('props', this.props)
-        // console.log('props', this.props.books)
         // console.log('props', this.props.books.booksList)
 
         return(
