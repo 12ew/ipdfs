@@ -4,7 +4,9 @@ import {
     GET_BOOKS_BY_GENRE,
     ADD_BOOK,
     ADD_AUTHOR,
+    GET_AUTHORS,
     ADD_GENRE,
+    GET_GENRES,
     GET_USER,
     LOGOUT
 } from './types'
@@ -33,6 +35,18 @@ export function fetchAllBooksByAuthor(id) {
     }
 }
 
+// FETCH ALL AUTHORS
+
+export function fetchAllAuthors() {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/authors`)
+        .then(resp => resp.json())
+        .then(data => {
+            dispatch({ type: GET_AUTHORS, payload: data })
+        });
+    }
+}
+
 // FETCH ALL BOOKS BY GENRE
 
 export function fetchAllBooksByGenre(id) {
@@ -41,6 +55,18 @@ export function fetchAllBooksByGenre(id) {
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_BOOKS_BY_GENRE, payload: data })
+        });
+    }
+}
+
+// FETCH ALL GENRES
+
+export function fetchAllGenres() {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/genres`)
+        .then(resp => resp.json())
+        .then(data => {
+            dispatch({ type: GET_GENRES, payload: data })
         });
     }
 }

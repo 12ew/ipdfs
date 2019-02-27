@@ -7,10 +7,12 @@ import Login from './components/login';
 import { getReauth } from './actions/index'
 import { connect } from 'react-redux';
 import BookView from './components/BookView';
+import AddBook from './components/addBook';
 
 class App extends Component {
 
   componentDidMount() {
+    console.log(this.props)
     this.props.getReauth()
   }
   
@@ -24,6 +26,7 @@ class App extends Component {
 
               <Route exact path="/login" component={Login}/>
               <Route exact path="/home" component={BookView}/>
+              <Route exact path="/newbook" component={AddBook}/>
 
             </div>
 
