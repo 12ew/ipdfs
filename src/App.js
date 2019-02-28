@@ -8,6 +8,8 @@ import { getReauth } from './actions/index'
 import { connect } from 'react-redux';
 import BookView from './components/BookView';
 import AddBook from './components/addBook';
+import AddAuthor from './components/AddAuthor';
+import AddGenre from './components/AddGenre';
 
 class App extends Component {
 
@@ -27,6 +29,8 @@ class App extends Component {
               <Route exact path="/login" component={Login}/>
               <Route exact path="/home" component={BookView}/>
               <Route exact path="/newbook" component={AddBook}/>
+              <Route exact path="/newauthor" component={AddAuthor}/>
+              <Route exact path="/newgenre" component={AddGenre}/>
 
             </div>
 
