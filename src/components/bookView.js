@@ -17,7 +17,7 @@ class BookView extends React.Component {
 
         return(
             <div className="booksList">
-            <bookItem />
+            {/* <BookItem /> */}
                 <Card.Group centered itemsPerRow={4}>
                     {this.props.books.booksList.map(book => {
                         return <BookItem key={book.id} book={book}/>

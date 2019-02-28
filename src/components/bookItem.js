@@ -17,8 +17,8 @@ class BookItem extends React.Component {
                         </div>
                     </Card.Content>
                     <Card.Content>
-                        <Image floated="left" class="ui small rounded image" src={Book} />
-                        <div class="book-info" floated="right">
+                        <Image floated="left" className="ui small rounded image" src={Book} />
+                        <div className="book-info" floated="right">
                             
                             <Card.Meta size='medium'><strong style={{color: "black"}}>{arabic_title}</strong></Card.Meta>
                             <br/>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addNewBook, fetchAllAuthors, fetchAllGenres } from '../actions/index';
 import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
 
-class addBook extends Component {
+class AddBook extends Component {
     constructor() {
         super()
 
@@ -144,4 +144,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { addNewBook, fetchAllAuthors, fetchAllGenres  })(addBook)
+export default connect(mapStateToProps, { addNewBook, fetchAllAuthors, fetchAllGenres  })(AddBook)
