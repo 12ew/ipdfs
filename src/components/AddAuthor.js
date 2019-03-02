@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addNewAuthor } from '../actions/index';
-import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
+import { addNewAuthor, getReauth } from '../actions/index';
+import { Button, Form, Input, TextArea } from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom';
 
 class AddAuthor extends Component {
     constructor() {
@@ -30,7 +31,7 @@ class AddAuthor extends Component {
 
     e.target.reset()
 
-    this.props.history.push('/newbook')
+    this.props.history.push('/author')
     }
 
 
@@ -41,10 +42,17 @@ class AddAuthor extends Component {
         })
     }
 
+    componentDidMount() {
+        console.log(this.props)
+        this.props.getReauth()
+    }
+
 render() {
     console.log(this.props)
+    if (this.props.currentUser.id) {
     return (
-        <div className = "create-form">
+        <div className = "create-book">
+            <br/>
             <div id="create-form-header">
                 <h3>ADD A NEW AUTHOR</h3>
             </div>
@@ -63,14 +71,18 @@ render() {
                 <Form.Field type="submit"><Button size="medium" className="ui button" type="submit">Submit</Button></Form.Field>
             </Form>
         </div>
-    )
-  }
+        );
+        } else {
+            return <Redirect to = '/login' />
+        }
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        authors: state.authors
+        authors: state.authors,
+        currentUser: state.authentication.currentUser
     }
 }
 
-export default connect(mapStateToProps, { addNewAuthor })(AddAuthor)
+export default connect(mapStateToProps, { addNewAuthor, getReauth })(AddAuthor)

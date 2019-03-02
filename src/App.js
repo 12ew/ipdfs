@@ -28,9 +28,9 @@ class App extends Component {
 
               <Route exact path="/login" component={Login}/>
               <Route exact path="/home" component={BookView}/>
-              <Route exact path="/newbook" component={AddBook}/>
-              <Route exact path="/newauthor" component={AddAuthor}/>
-              <Route exact path="/newgenre" component={AddGenre}/>
+              <Route exact path="/book" component={AddBook}/>
+              <Route exact path="/author" component={AddAuthor}/>
+              <Route exact path="/genre" component={AddGenre}/>
 
             </div>
 
@@ -42,7 +42,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // currentUser: state.authentication.currentUser
+    currentUser: state.authentication.currentUser
   }
 }
 

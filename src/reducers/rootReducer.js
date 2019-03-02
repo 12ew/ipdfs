@@ -8,7 +8,8 @@ const rootReducer = combineReducers({
     books: bookReducer,
     authors: authorReducer,
     genres: genreReducer,
-    users: userReducer
+    users: userReducer,
+    authentication: userReducer
 });
 
 export default rootReducer
