@@ -26,19 +26,14 @@ class BookView extends React.Component {
     }
 
     render(){
-        // console.log('props', this.props)
-        // console.log('search term:', this.props.searchTerm)
-        // console.log('filtered books:', this.props.filteredBooks)
-        // console.log('props', this.props.books.booksList)
-
         return(
             <div className="booksList">
                 {(this.props.searchTerm === '') ?
-                <Card.Group centered itemsPerRow={4}>
+                <Card.Group centered itemsPerRow={6}>
                   {this.books()}
                 </Card.Group> : 
         
-                <Card.Group centered itemsPerRow={4}>
+                <Card.Group centered itemsPerRow={6}>
                   {this.filteredBooks()}
                 </Card.Group>}
             </div>

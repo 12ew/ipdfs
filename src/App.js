@@ -23,7 +23,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props)
     this.props.fetchAllBooks()
     this.props.getReauth()
   }
@@ -31,22 +30,18 @@ class App extends Component {
   handleChange = (e) => {
     console.log(e.target.value)
       this.setState({
-          searchTerm: e.target.value
+          searchTerm: e.target.value.toLowerCase()
       })
   }
 
   filteredBooks = () => {
       return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
-        console.log('author:', book)
-          return book.eng_title.toUpperCase().includes(this.state.searchTerm) || book.arabic_title.toUpperCase().includes(this.state.searchTerm) 
+          return book.eng_title.toLowerCase().includes(this.state.searchTerm) || book.arabic_title.includes(this.state.searchTerm) 
           || book.author.name.toLowerCase().includes(this.state.searchTerm)
       })
   }
   
   render() {
-    console.log(this.props.books.booksList)
-    console.log(this.state.books)
-    console.log(this.state.searchTerm)
     return (
       <div className="App">
         <Header className="header" search={this.handleChange}/>
@@ -54,7 +49,6 @@ class App extends Component {
             <div>
 
               <Route exact path="/login" component={Login}/>
-              {/* <Route exact path="/home" component={BookView} /> */}
               <Route exact path="/addauthor" component={AddAuthor}/>
               <Route exact path="/addgenre" component={AddGenre}/>
               <Route exact path="/book" component={AddBook}/>

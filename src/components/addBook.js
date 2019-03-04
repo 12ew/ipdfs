@@ -65,8 +65,6 @@ class AddBook extends Component {
     }
 
 render() {
-    console.log(this.props.currentUser.id)
-    // if (this.props.currentUser.id) {
     return (
         (!this.props.currentUser.id) ? <Redirect to='/login'/> : 
         <div className = "form">
@@ -119,9 +117,6 @@ render() {
             </Form>
         </div>
         );
-        // } else {
-        //     return <Redirect to = '/login' />
-        // }
     }
 }
 
