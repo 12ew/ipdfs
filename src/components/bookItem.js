@@ -4,7 +4,7 @@ import { Card, Button, Header, Icon, Image } from 'semantic-ui-react'
 class BookItem extends React.Component {
         
     render(){
-        console.log('books', this.props.book)
+        // console.log('books', this.props.book)
         const { eng_title, arabic_title, about, language, translator, num_pages, file, image } = this.props.book
         return(
         <div className="book-card">
@@ -29,7 +29,7 @@ class BookItem extends React.Component {
                         <div>
                         <a href={file} target="_blank">
                             <Button basic color='green'>
-                                <Icon name="download"/>Read or Download
+                                <Icon name="download"/>Download
                             </Button>
                         </a>
                         </div>

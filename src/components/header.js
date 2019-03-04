@@ -20,12 +20,12 @@ class Header extends Component {
     }
 
     handleFilter = (e) => {
-        console.log(e.target)
+        console.log(e.target.innerText)
     }
 
     render() {
+        console.log(this.props.search)
         const { activeItem } = this.state
-
         return (
             <Menu className="nav-header">
                 <Menu.Menu id='logo' position='left'>
@@ -58,7 +58,7 @@ class Header extends Component {
                     onClick={this.handleItemClick, this.handleFilter}
                 />
                 <Menu.Menu position='right'>
-                    <Menu.Item>
+                    <Menu.Item onChange={this.props.search}>
                         <Input icon='search' placeholder='Search...' />
                     </Menu.Item>
 
@@ -73,12 +73,11 @@ class Header extends Component {
                     
 
                     { this.props.currentUser.id ?
-                    <Menu.Item
-                        name='logout'
-                        active={activeItem === 'Logout'}
-                        onClick={this.handleItemClick, this.handleLogout}
+                <Menu.Item
+                    name='logout'
+                    active={activeItem === 'Logout'}
+                    onClick={this.handleItemClick, this.handleLogout}
                     /> : null }
-
                 </Menu.Menu>
             </Menu>
         )

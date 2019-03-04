@@ -42,19 +42,20 @@ class Login extends React.Component {
     // console.log(this.props)
     if (!this.props.currentUser.id) {
     return(
-      <div id="signup-form">
+      <div id="form">
         
         <div id="">
           <hr/>
             <br/>
-              <div>Sunnah PDFs</div>
+              <div><h3>Sunnah PDFs</h3></div>
             <br/>
           <hr/>
         </div>
-        {/* <hr/> */}
+
         <h1>Login</h1>
+
         <br/>
-          <Form size="medium" className="form" onSubmit={this.handleSubmit}>
+          <Form size="small" className="form" onSubmit={this.handleSubmit}>
 
               <Form.Field>
                   <label style={{color: "black"}}>Email</label>

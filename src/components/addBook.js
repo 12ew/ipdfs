@@ -48,7 +48,7 @@ class AddBook extends Component {
 
     e.target.reset()
 
-    this.props.history.push('/book')
+    this.props.history.push('/addbook')
     }
 
 
@@ -82,7 +82,7 @@ render() {
                     <Form.Field control={Input} value={this.state.arabic_title} label='Arabic Title' placeholder='شرح حديث جبريل لشيخ الإسلام ابن تيمية' onChange={this.handleChange} name="arabic_title"/>
                     
                     <Form.Field control={Input} value={this.state.language} label='Language' placeholder='Arabic'  onChange={this.handleChange} name="language" />
-
+                    
                     <label><strong>Author</strong></label>
                     <select
                         name="author_id"
