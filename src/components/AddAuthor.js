@@ -24,14 +24,14 @@ class AddAuthor extends Component {
             yod: this.state.yod
         }
 
-        console.log(this.props)
+        // console.log(this.props)
         // console.log(newBook)
 
     this.props.addNewAuthor(newAuthor)
 
     e.target.reset()
 
-    this.props.history.push('/author')
+    this.props.history.push('/addauthor')
     }
 
 
@@ -43,14 +43,18 @@ class AddAuthor extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
+        console.log("hi")
+        console.log(this.props.currentUser.id)
         this.props.getReauth()
     }
 
+
 render() {
-    console.log(this.props)
-    if (this.props.currentUser.id) {
+    // console.log("hitting this")
+    // console.log(this.props.currentUser)
+    
     return (
+        (localStorage.getItem('jwt') == null) ? <Redirect to='/login'/> : 
         <div className = "create-book">
             <br/>
             <div id="create-form-header">
@@ -72,9 +76,6 @@ render() {
             </Form>
         </div>
         );
-        } else {
-            return <Redirect to = '/login' />
-        }
     }
 }
 

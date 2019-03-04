@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 const auth = (ComponentToWrap) => {
     return class WrappedComponent extends React.Component {
         render () {
-        return (
-            this.props.currentUser ? <ComponentToWrap />
-            : <Redirect to='/login' />
-        )
+            return (
+                this.props.currentUser ? <ComponentToWrap />
+                : <Redirect to='/login' />
+            )
         }
     }
 }

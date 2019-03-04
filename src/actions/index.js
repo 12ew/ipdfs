@@ -143,6 +143,7 @@ export function getReauth() {
     const token = localStorage.getItem('jwt')
 
     if (token) {
+        console.log(token);
         const options = {
             headers: {
                 'Content-Type': 'application/json',
@@ -151,10 +152,11 @@ export function getReauth() {
             }
         }
         return(dispatch) => {
-            fetch(`http://localhost:3000/api/v1/login`, options)
+            fetch(`http://localhost:3000/api/v1/reauth`, options)
             .then(resp => resp.json())
             .then(user => {
                 dispatch(getLogin(user))
+                console.log(user)
             })
         }
     } else {

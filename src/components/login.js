@@ -12,7 +12,7 @@ class Login extends React.Component {
     };
 
     handleChange = (e) => {
-      console.log(e.target.value)
+      // console.log(e.target.value)
       this.setState({
         [e.target.name]: e.target.value
       })
@@ -39,12 +39,12 @@ class Login extends React.Component {
 
 
   render(){
-    console.log(this.props)
+    // console.log(this.props)
     if (!this.props.currentUser.id) {
     return(
       <div id="signup-form">
         
-        <div id="welcome-to-shipx">
+        <div id="">
           <hr/>
             <br/>
               <div>Sunnah PDFs</div>
@@ -54,7 +54,7 @@ class Login extends React.Component {
         {/* <hr/> */}
         <h1>Login</h1>
         <br/>
-          <Form size="medium" className="signup-form" onSubmit={this.handleSubmit}>
+          <Form size="medium" className="form" onSubmit={this.handleSubmit}>
 
               <Form.Field>
                   <label style={{color: "black"}}>Email</label>

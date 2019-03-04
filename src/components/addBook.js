@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addNewBook, fetchAllAuthors, fetchAllGenres, getReauth } from '../actions/index';
-import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
+import { Button, Form, Input, Dropdown, TextArea } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 
 class AddBook extends Component {
@@ -41,7 +41,7 @@ class AddBook extends Component {
             file: this.state.file
         }
 
-        console.log(this.props)
+        // console.log(this.props)
         // console.log(newBook)
 
     this.props.addNewBook(newBook)
@@ -65,9 +65,11 @@ class AddBook extends Component {
     }
 
 render() {
-    if (this.props.currentUser.id) {
+    console.log(this.props.currentUser.id)
+    // if (this.props.currentUser.id) {
     return (
-        <div className = "create-book">
+        (!this.props.currentUser.id) ? <Redirect to='/login'/> : 
+        <div className = "form">
             <br/>
             <div id="create-form-header">
                 <h3>ADD A NEW BOOK</h3>
@@ -117,9 +119,9 @@ render() {
             </Form>
         </div>
         );
-        } else {
-            return <Redirect to = '/login' />
-        }
+        // } else {
+        //     return <Redirect to = '/login' />
+        // }
     }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Switch, withRouter } from 'react-router-dom'
-import Header from "./components/header";
+import Header from "./components/Header";
 import Login from './components/login';
 import { getReauth } from './actions/index'
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ import AddGenre from './components/AddGenre';
 class App extends Component {
 
   componentDidMount() {
-    console.log(this.props)
+    // console.log(this.props)
     this.props.getReauth()
   }
   
@@ -28,9 +28,9 @@ class App extends Component {
 
               <Route exact path="/login" component={Login}/>
               <Route exact path="/home" component={BookView}/>
+              <Route exact path="/addauthor" component={AddAuthor}/>
+              <Route exact path="/addgenre" component={AddGenre}/>
               <Route exact path="/book" component={AddBook}/>
-              <Route exact path="/author" component={AddAuthor}/>
-              <Route exact path="/genre" component={AddGenre}/>
 
             </div>
 

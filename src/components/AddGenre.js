@@ -21,14 +21,14 @@ class AddGenre extends Component {
             name: this.state.name
         }
 
-        console.log(this.props)
+        // console.log(this.props)
         // console.log(newBook)
 
     this.props.addNewGenre(newGenre)
 
     e.target.reset()
 
-    this.props.history.push('/genre')
+    this.props.history.push('/addgenre')
     }
 
 
@@ -40,20 +40,23 @@ class AddGenre extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
         this.props.getReauth()
     }
 
 render() {
-    if (this.props.currentUser.id) {
+    // console.log(this.props.currentUser)
+    // console.log(localStorage.getItem('jwt'))
+    
     return (
-        <div className = "create-book">
+        (localStorage.getItem('jwt') == null) ? <Redirect to='/login'/> : 
+        <div>
             <br/>
-            <div id="create-form-header">
+            <div>
                 <h3>ADD A NEW GENRE</h3>
             </div>
             <br/>
-                <Form id="book-form" onSubmit={this.handleSubmit}>
+                <Form id="form" onSubmit={this.handleSubmit}>
                 <Form size="medium">
                 
                     <Form.Field control={Input} value={this.state.name} label='Name' placeholder='Aqeedah' id="item-name" onChange={this.handleChange} name="name"/>
@@ -64,9 +67,6 @@ render() {
             </Form>
         </div>
         );
-        } else {
-            return <Redirect to = '/login' />
-        }
     }
 }
 
