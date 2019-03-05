@@ -130,10 +130,19 @@ span > p {
 .title {
   font-weight: bold;
 }
-/* #image {
-  text-align: center;
+
+.section-header {
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  left: 50px;
 }
 
-.img .p {
-  display: inline-block;
-}  */
+.see-all {
+  float: right;
+  margin-right: 50px;
+  width: auto;
+  background-color: white;
+  padding: 0 6px 0 6px;
+  color: rgb(0, 0, 202);
+}

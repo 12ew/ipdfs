@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Menu, MenuMenu } from 'semantic-ui-react'
-import { Button } from '../../node_modules/semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/index';
@@ -8,7 +8,7 @@ import logo from '../spdfslogo.svg'
 
 
 
-class Header extends Component {
+class Nav extends Component {
     state = { activeItem: 'Home' }
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -20,11 +20,11 @@ class Header extends Component {
     }
 
     handleFilter = (e) => {
-        console.log(e.target.innerText)
+        // console.log(e.target.innerText)
     }
 
     render() {
-        console.log(this.props.search)
+        // console.log(this.props.search)
         const { activeItem } = this.state
         return (
             <Menu className="nav-header">
@@ -90,4 +90,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { logout })(Header)
+export default connect(mapStateToProps, { logout })(Nav)

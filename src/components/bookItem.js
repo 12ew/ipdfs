@@ -4,6 +4,7 @@ import { Card, Button, Header, Icon, Image } from 'semantic-ui-react'
 class BookItem extends React.Component {
         
     render(){
+        // console.log(this.props.book)
         const { eng_title, arabic_title, about, language, translator, num_pages, file, image, author } = this.props.book
         const englishTitle = eng_title.toLowerCase()
                             .split(' ').map((s) => s.charAt(0)

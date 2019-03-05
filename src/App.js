@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Switch, withRouter } from 'react-router-dom'
-import Header from "./components/Header";
+import Nav from "./components/Nav";
 import Login from './components/login';
 import { fetchAllBooks, getReauth } from './actions/index'
 import { connect } from 'react-redux';
@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    console.log(e.target.value)
       this.setState({
           searchTerm: e.target.value.toLowerCase()
       })
@@ -44,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header className="header" search={this.handleChange}/>
+        <Nav className="header" search={this.handleChange}/>
           <Switch>
             <div>
 
