@@ -10,28 +10,28 @@ class BookItem extends React.Component {
                             .toUpperCase() + s.substring(1))
                             .join(' ');
         return(
-        <div className="book-card">
+        <div className="ui card link">
                 <Card>
                     <Card.Content extra>
                         <div>
-                        <Header size="tiny" style={{color: "black"}}><strong>{englishTitle}</strong></Header>
+                            <Header style={{ color: "black" }}><strong className="title">{englishTitle}</strong></Header>
                         </div>
                     </Card.Content>
                     <Card.Content>
                         <Image floated="left" className="ui small rounded image" src={image} />
                         <div className="book-info" floated="right">
                             
-                            <Card.Meta size='medium'><strong style={{color: "black"}}>{arabic_title}</strong></Card.Meta>
-                            <br/>
-                            <Card.Meta>Language: <strong style={{color: "green"}}>{language}</strong></Card.Meta>
-                            <br/>
-                            <Card.Meta>Pages: {num_pages}</Card.Meta>
+                            <Card.Meta><strong className="arabic" style={{color: "black"}}>{arabic_title}</strong></Card.Meta>
+                            {/* <br/> */}
+                            <Card.Meta><p className="metaText">Language: {language}</p></Card.Meta>
+                            {/* <br/> */}
+                            <Card.Meta><p className="metaText">Pages: {num_pages}</p></Card.Meta>
                         </div>
                     </Card.Content>
                     <Card.Content extra>
                         <div>
                         <a href={file} target="_blank">
-                            <Button basic color='green'>
+                                <Button compact size='mini' positive color='green'>
                                 <Icon name="download"/>Download
                             </Button>
                         </a>

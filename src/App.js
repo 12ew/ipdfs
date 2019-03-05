@@ -49,8 +49,8 @@ class App extends Component {
             <div>
 
               <Route exact path="/login" component={Login}/>
-              <Route exact path="/addauthor" component={AddAuthor}/>
-              <Route exact path="/addgenre" component={AddGenre}/>
+              <Route exact path="/author" component={AddAuthor}/>
+              <Route exact path="/genre" component={AddGenre}/>
               <Route exact path="/book" component={AddBook}/>
 
               <Route exact path="/home" render={() => <BookView searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()}/>} />

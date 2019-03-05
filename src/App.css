@@ -64,3 +64,19 @@
   background: #006C35;
   margin-top: 15px;
 }
+
+/* .card {
+  transform: scale(1, 1)
+} */
+
+.arabic {
+  font-size: 10px;
+}
+
+.title {
+  font-size: 10px;
+}
+
+.metaText {
+  font-size: 10px;
+}

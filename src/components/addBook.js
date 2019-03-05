@@ -41,14 +41,11 @@ class AddBook extends Component {
             file: this.state.file
         }
 
-        // console.log(this.props)
-        // console.log(newBook)
-
     this.props.addNewBook(newBook)
 
     e.target.reset()
 
-    this.props.history.push('/addbook')
+    this.props.history.push('/home')
     }
 
 
@@ -66,7 +63,7 @@ class AddBook extends Component {
 
 render() {
     return (
-        (!this.props.currentUser.id) ? <Redirect to='/login'/> : 
+        (localStorage.getItem('jwt') == null) ? <Redirect to='/login'/> : 
         <div className = "form">
             <br/>
             <div id="create-form-header">

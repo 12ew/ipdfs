@@ -28,7 +28,7 @@ class AddGenre extends Component {
 
     e.target.reset()
 
-    this.props.history.push('/addgenre')
+    this.props.history.push('/genre')
     }
 
 
