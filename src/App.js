@@ -18,7 +18,8 @@ class App extends Component {
       this.state = {
           books: [],
           filteredBooks: [],
-          searchTerm: ''
+          searchTerm: '',
+          selectedLanguage: ''
       }
   }
 
@@ -33,6 +34,13 @@ class App extends Component {
       })
   }
 
+  handleLanguage = (e) => {
+    // console.log(e.target.innerText)
+    this.setState({
+      selectedLanguage: e.target.innerText
+    })
+  }
+
   filteredBooks = () => {
       return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
           return book.eng_title.toLowerCase().includes(this.state.searchTerm) || book.arabic_title.includes(this.state.searchTerm) 
@@ -41,9 +49,10 @@ class App extends Component {
   }
   
   render() {
+    console.log('LANGUAGE:', this.state.selectedLanguage);
     return (
       <div className="App">
-        <Nav className="header" search={this.handleChange}/>
+        <Nav className="header" search={this.handleChange} language={this.handleLanguage}/>
           <Switch>
             <div>
 
@@ -52,7 +61,7 @@ class App extends Component {
               <Route exact path="/genre" component={AddGenre}/>
               <Route exact path="/book" component={AddBook}/>
 
-              <Route exact path="/home" render={() => <BookView searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()}/>} />
+              <Route exact path="/home" render={() => <BookView searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
 
 
             </div>

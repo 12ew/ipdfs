@@ -19,12 +19,8 @@ class Nav extends Component {
         localStorage.clear()
     }
 
-    handleFilter = (e) => {
-        // console.log(e.target.innerText)
-    }
-
     render() {
-        // console.log(this.props.search)
+        // console.log(this.props)
         const { activeItem } = this.state
         return (
             <Menu className="nav-header">
@@ -36,26 +32,30 @@ class Nav extends Component {
                     </Menu.Item>
                 </Menu.Menu>
 
-                <Menu.Item name='عربى' active={activeItem === 'عربى'} onClick={this.handleItemClick, this.handleFilter} />
+                <Menu.Item name='عربى' active={activeItem === 'عربى'} onClick={this.handleItemClick} onMouseDown={this.props.language}/>
                 <Menu.Item
                     name='English'
                     active={activeItem === 'English'}
-                    onClick={this.handleItemClick, this.handleFilter}
-                />
+                    onClick={this.handleItemClick}
+                    onMouseDown={this.props.language}
+            />
                 <Menu.Item
                     name='اردو'
                     active={activeItem === 'اردو'}
-                    onClick={this.handleItemClick, this.handleFilter}
+                    onClick={this.handleItemClick}
+                    onMouseDown={this.props.language}
                 />
                 <Menu.Item
                     name='Français'
                     active={activeItem === 'Français'}
-                    onClick={this.handleItemClick, this.handleFilter}
+                    onClick={this.handleItemClick}
+                    onMouseDown={this.props.language}
                 />
                 <Menu.Item
                     name='Español'
                     active={activeItem === 'Español'}
-                    onClick={this.handleItemClick, this.handleFilter}
+                    onClick={this.handleItemClick}
+                    onMouseDown={this.props.language}
                 />
                 <Menu.Menu position='right'>
                     <Menu.Item onChange={this.props.search}>

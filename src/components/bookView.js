@@ -15,7 +15,6 @@ class BookView extends React.Component {
     // All books
     books = () => {
         return this.props.books.booksList.map(book => {
-            console.log(book);
                 return <BookItem key={book.id} book={book}/>
             })
     }
@@ -49,7 +48,7 @@ class BookView extends React.Component {
     // Hadeeth books
     hadeethBooks = () => {
         return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
-            return book.genre.name === "Hadeeth"
+            return (book.genre.name === "Hadeeth") && (book.language === this.props.language)
         })
     }
 
@@ -80,6 +79,7 @@ class BookView extends React.Component {
     }
 
     render(){
+        console.log(this.props)
         return(
             <div className="booksList">
                 {(this.props.searchTerm === '') ?
