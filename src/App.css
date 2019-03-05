@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  /* background-color: rgb(226, 223, 223); */
+  background-color: rgb(240, 240, 240);
 }
 
 /* .App-logo {
@@ -35,12 +35,12 @@
 
 
 
-.book-card {
-  padding: 0 15px 5px 15px;
-}
+/* .card {
+  padding: 0 10px 5px 10px;
+} */
 
 .booksList {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .book-info {
@@ -80,3 +80,60 @@
 .metaText {
   font-size: 10px;
 }
+
+
+.row {
+  padding: 10px;
+  clear: both;
+  width: 250px;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  position: relative;
+}
+
+.column-left {
+  float: left;
+  width: 120px;
+}
+
+.column {
+  float: right;
+  margin-left: 5px;
+  width: 100px;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: 10px;
+}
+
+Button {
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+}
+
+span > p {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.meta {
+  color: rgb(153, 153, 153);
+}
+
+.title {
+  font-weight: bold;
+}
+/* #image {
+  text-align: center;
+}
+
+.img .p {
+  display: inline-block;
+}  */
