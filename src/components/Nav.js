@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Input, Menu, Dropdown } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/index';
@@ -20,7 +19,7 @@ class Nav extends Component {
     }
 
     render() {
-        // console.log(this.props)
+        // console.log(this.props.selectedLanguage)
         const { activeItem } = this.state
         return (
             <Menu pointing secondary className="nav-header">
@@ -70,13 +69,13 @@ class Nav extends Component {
                 />
                 <Dropdown item text='Categories'>
                     <Dropdown.Menu >
-                        <Link to="/aqeedah"><Dropdown.Item>Aqeedah</Dropdown.Item></Link>
-                        <Link to="/hadeeth"><Dropdown.Item>Hadeeth</Dropdown.Item></Link>
-                        <Link to="/fiqh"><Dropdown.Item>Fiqh</Dropdown.Item></Link>
-                        <Link to="/tafseer"><Dropdown.Item>Tafseer</Dropdown.Item></Link>
-                        <Link to="/seerah"><Dropdown.Item>Seerah</Dropdown.Item></Link>
-                        <Link to="/mutoon"><Dropdown.Item>Mutoon</Dropdown.Item></Link>
-                        <Link to="/arabic"><Dropdown.Item>Arabic</Dropdown.Item></Link>
+                        <Link to="/aqeedah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عقيدة" : "Aqeedah"}</Dropdown.Item></Link>
+                        <Link to="/hadeeth"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "حديث" : "Hadeeth"}</Dropdown.Item></Link>
+                        <Link to="/fiqh"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "فقه" : "Fiqh"}</Dropdown.Item></Link>
+                        <Link to="/tafseer"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "تفسير" : "Tafseer"}</Dropdown.Item></Link>
+                        <Link to="/seerah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "سيرة" : "Seerah"}</Dropdown.Item></Link>
+                        <Link to="/mutoon"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "متون" : "Mutoon"}</Dropdown.Item></Link>
+                        <Link to="/arabic"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عربية" : "Arabic"}</Dropdown.Item></Link>
                     </Dropdown.Menu>
                 </Dropdown>
                 <Menu.Menu position='right'>

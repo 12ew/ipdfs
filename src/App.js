@@ -60,7 +60,7 @@ class App extends Component {
     console.log('LANGUAGE:', this.state.selectedLanguage);
     return (
       <div className="App">
-        <Nav className="header" search={this.handleChange} language={this.handleLanguage}/>
+        <Nav className="header" search={this.handleChange} language={this.handleLanguage} selectedLanguage={this.state.selectedLanguage}/>
           <Switch>
             <div>
 

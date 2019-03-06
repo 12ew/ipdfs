@@ -40,9 +40,8 @@ class Tafseer extends React.Component {
                 {(this.props.searchTerm === '') ?
 
                     <div>
+                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "تفسير" : "Tafseer"}</p></span><br />
                         <Divider section />
-
-                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "تفسير" : "Tafseer"}</p> <a className="see-all" href="/home">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br />
                         <Card.Group centered itemsPerRow={6}>
                             {this.tafseerBooksArray()}
                         </Card.Group>

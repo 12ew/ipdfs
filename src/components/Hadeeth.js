@@ -40,9 +40,8 @@ class Hadeeth extends React.Component {
                 {(this.props.searchTerm === '') ?
 
                     <div>
+                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "حديث" : "Hadeeth"}</p></span><br />
                         <Divider section />
-
-                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "حديث" : "Hadeeth"}</p> <a className="see-all" href="/book">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br /><br />
                         <Card.Group centered itemsPerRow={6}>
                             {this.hadeethBooksArray()}
                         </Card.Group>

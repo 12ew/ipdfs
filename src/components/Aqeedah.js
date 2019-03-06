@@ -40,17 +40,16 @@ class Aqeedah extends React.Component {
                 {(this.props.searchTerm === '') ?
 
                     <div>
+                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عقيدة" : "Aqeedah"}</p></span><br />
                         <Divider section />
-
-                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عقيدة" : "Aqeedah"}</p> <a className="see-all" href="/home">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br />
-                        <Card.Group centered itemsPerRow={6}>
+                        <Card.Group centered itemsPerRow={4}>
                             {this.aqeedahBooksArray()}
                         </Card.Group>
 
                         <Divider section />
                     </div>
                     :
-                    <Card.Group centered itemsPerRow={6}>
+                    <Card.Group centered itemsPerRow={4}>
                         {this.filteredBooks()}
                     </Card.Group>}
             </div>

@@ -40,9 +40,8 @@ class Fiqh extends React.Component {
                 {(this.props.searchTerm === '') ?
 
                     <div>
+                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p></span><br />
                         <Divider section />
-
-                        <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p> <a className="see-all" href="/home">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br />
                         <Card.Group centered itemsPerRow={6}>
                             {this.fiqhBooksArray()}
                         </Card.Group>
