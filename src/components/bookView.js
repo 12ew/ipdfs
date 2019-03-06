@@ -32,6 +32,45 @@ class BookView extends React.Component {
             })
     }
 
+    //Arabic books
+    arabicBooks = () => {
+        return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
+            return (book.genre.name === "Arabic") && (book.language === this.props.language)
+        })
+    }
+
+    arabicBooksArray = () => {
+        return this.arabicBooks().map(book => {
+                return <BookItem key={book.id} book={book}/>
+            })
+    }
+
+    //Seerah books
+    seerahBooks = () => {
+        return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
+            return (book.genre.name === "Seerah") && (book.language === this.props.language)
+        })
+    }
+
+    seerahBooksArray = () => {
+        return this.seerahBooks().map(book => {
+                return <BookItem key={book.id} book={book}/>
+            })
+    }
+
+    //Mutoon books
+    mutoonBooks = () => {
+        return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
+            return (book.genre.name === "Mutoon") && (book.language === this.props.language)
+        })
+    }
+
+    mutoonBooksArray = () => {
+        return this.mutoonBooks().map(book => {
+                return <BookItem key={book.id} book={book}/>
+            })
+    }
+
     // Fiqh books
     fiqhBooks = () => {
         return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
@@ -79,43 +118,63 @@ class BookView extends React.Component {
     }
 
     render(){
-        console.log(this.props.language)
+        // console.log(this.props.language)
         // console.log(this.state.language)
         return(
             <div className="booksList">
                 {(this.props.searchTerm === '') ?
 
                 <div>
-                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "حديث" : "Hadeeth"}</p> <a className="see-all" href="/book">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br /><br/>
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "حديث" : "Hadeeth"}</p> <a className="see-all" href="/hadeeth">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br /><br/>
                     <Card.Group centered itemsPerRow={6}>
-                            {this.hadeethBooksArray()}
+                        {this.hadeethBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
 
                     <Divider section />
 
-                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عقيدة" : "Aqeedah"}</p> <a className="see-all" href="/home">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عقيدة" : "Aqeedah"}</p> <a className="see-all" href="/aqeedah">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
                     <Card.Group centered itemsPerRow={6}>
-                            {this.aqeedahBooksArray()}
+                        {this.aqeedahBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
 
                     <Divider section />
 
-                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p> <a className="see-all" href="/home">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p> <a className="see-all" href="/fiqh">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
                     <Card.Group centered itemsPerRow={6}>
-                            {this.fiqhBooksArray()}
+                        {this.fiqhBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
 
                     <Divider section />
 
-                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "تفسير" : "Tafseer"}</p> <a className="see-all" href="/home">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "تفسير" : "Tafseer"}</p> <a className="see-all" href="/tafseer">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
                     <Card.Group centered itemsPerRow={6}>
-                            {this.tafseerBooksArray()}
+                        {this.tafseerBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
 
+                    <Divider section />
+
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "سيرة" : "Seerah"}</p> <a className="see-all" href="/seerah">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
+                    <Card.Group centered itemsPerRow={6}>
+                        {this.seerahBooksArray().reverse().slice(0, 4)}
+                    </Card.Group>
+
+                    <Divider section />
+
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "متون" : "Mutoon"}</p> <a className="see-all" href="/mutoon">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
+                    <Card.Group centered itemsPerRow={6}>
+                        {this.mutoonBooksArray().reverse().slice(0, 4)}
+                    </Card.Group>
+
+                    <Divider section />
+
+                    <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عربية" : "Arabic"}</p> <a className="see-all" href="/arabic">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}</a></span><br/>
+                    <Card.Group centered itemsPerRow={6}>
+                        {this.arabicBooksArray().reverse().slice(0, 4)}
+                    </Card.Group>
                 </div>
                 : 
                 <Card.Group centered itemsPerRow={6}>
-                    {this.filteredBooks()}
+                    {this.filteredBooks().reverse()}
                 </Card.Group>}
             </div>
         )

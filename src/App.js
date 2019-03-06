@@ -10,6 +10,13 @@ import BookView from './components/BookView';
 import AddBook from './components/addBook';
 import AddAuthor from './components/AddAuthor';
 import AddGenre from './components/AddGenre';
+import Aqeedah from './components/Aqeedah';
+import Fiqh from './components/Fiqh';
+import Hadeeth from './components/Hadeeth';
+import Arabic from './components/Arabic';
+import Mutoon from './components/Mutoon';
+import Seerah from './components/Seerah';
+import Tafseer from './components/Tafseer';
 
 class App extends Component {
     constructor(){
@@ -64,9 +71,15 @@ class App extends Component {
 
               <Route exact path="/home" render={() => <BookView searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
 
+              <Route exact path="/aqeedah" render={() => <Aqeedah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/fiqh" render={() => <Fiqh searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/hadeeth" render={() => <Hadeeth searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/mutoon" render={() => <Mutoon searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/tafseer" render={() => <Tafseer searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/seerah" render={() => <Seerah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/arabic" render={() => <Arabic searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
 
             </div>
-
           </Switch>
       </div>
     );
