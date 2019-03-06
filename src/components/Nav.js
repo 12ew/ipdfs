@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Menu, MenuMenu } from 'semantic-ui-react'
+import { Input, Menu, Dropdown } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -23,7 +23,7 @@ class Nav extends Component {
         // console.log(this.props)
         const { activeItem } = this.state
         return (
-            <Menu className="nav-header">
+            <Menu pointing secondary className="nav-header">
                 <Menu.Menu id='logo' position='left'>
                     <Menu.Item>
                         <Link to='/home'>
@@ -68,6 +68,17 @@ class Nav extends Component {
                     onClick={this.handleItemClick}
                     onMouseDown={this.props.language}
                 />
+                <Dropdown item text='Categories'>
+                    <Dropdown.Menu >
+                        <Link to="/aqeedah"><Dropdown.Item>Aqeedah</Dropdown.Item></Link>
+                        <Link to="/hadeeth"><Dropdown.Item>Hadeeth</Dropdown.Item></Link>
+                        <Link to="/fiqh"><Dropdown.Item>Fiqh</Dropdown.Item></Link>
+                        <Link to="/tafseer"><Dropdown.Item>Tafseer</Dropdown.Item></Link>
+                        <Link to="/seerah"><Dropdown.Item>Seerah</Dropdown.Item></Link>
+                        <Link to="/mutoon"><Dropdown.Item>Mutoon</Dropdown.Item></Link>
+                        <Link to="/arabic"><Dropdown.Item>Arabic</Dropdown.Item></Link>
+                    </Dropdown.Menu>
+                </Dropdown>
                 <Menu.Menu position='right'>
                     <Menu.Item onChange={this.props.search}>
                         <Input icon='search' placeholder='Search...' />

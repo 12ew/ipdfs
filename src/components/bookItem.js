@@ -12,7 +12,7 @@ class BookItem extends React.Component {
                             .join(' ');
         return(
             <div className="ui link row">
-                <div className="column-left"><img align='left' className="ui small rounded image" src={image} /></div>
+                <div className="column-left"><img align='left' className="ui small rounded image zoom" src={image} /></div>
                 <div className="column">
                     <p className="title">{englishTitle}</p>
                     <p className="title">{arabic_title}</p>
