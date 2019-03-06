@@ -142,7 +142,9 @@ span > p {
   float: right;
   margin-right: 50px;
   width: auto;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 0 6px 0 6px;
-  color: rgb(0, 0, 202);
+  color: rgb(0, 65, 185);
+  font-size: 12px;
+  font-weight: bold;
 }

@@ -32,13 +32,24 @@ class Nav extends Component {
                     </Menu.Item>
                 </Menu.Menu>
 
-                <Menu.Item name='عربى' active={activeItem === 'عربى'} onClick={this.handleItemClick} onMouseDown={this.props.language}/>
+                <Menu.Item 
+                    name='عربى' 
+                    active={activeItem === 'عربى'} 
+                    onClick={this.handleItemClick} 
+                    onMouseDown={this.props.language}
+                />
+                <Menu.Item 
+                    name='Arabic' 
+                    active={activeItem === 'Arabic'} 
+                    onClick={this.handleItemClick} 
+                    onMouseDown={this.props.language}
+                />
                 <Menu.Item
                     name='English'
                     active={activeItem === 'English'}
                     onClick={this.handleItemClick}
                     onMouseDown={this.props.language}
-            />
+                />
                 <Menu.Item
                     name='اردو'
                     active={activeItem === 'اردو'}

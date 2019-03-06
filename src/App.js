@@ -19,7 +19,7 @@ class App extends Component {
           books: [],
           filteredBooks: [],
           searchTerm: '',
-          selectedLanguage: ''
+          selectedLanguage: 'عربى'
       }
   }
 
@@ -29,6 +29,7 @@ class App extends Component {
   }
 
   handleChange = (e) => {
+    console.log("search", e.target.value);
       this.setState({
           searchTerm: e.target.value.toLowerCase()
       })
@@ -43,8 +44,8 @@ class App extends Component {
 
   filteredBooks = () => {
       return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
-          return book.eng_title.toLowerCase().includes(this.state.searchTerm) || book.arabic_title.includes(this.state.searchTerm) 
-          || book.author.name.toLowerCase().includes(this.state.searchTerm)
+          return (book.eng_title.toLowerCase().includes(this.state.searchTerm) || book.arabic_title.includes(this.state.searchTerm) 
+            || book.author.name.toLowerCase().includes(this.state.searchTerm)) && (book.language === this.state.selectedLanguage)
       })
   }
   
