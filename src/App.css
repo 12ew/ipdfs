@@ -112,7 +112,7 @@ p {
   font-size: 10px;
 }
 
-Button {
+.button {
   bottom: 10px;
   right: 10px;
   position: absolute;

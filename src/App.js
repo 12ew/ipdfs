@@ -57,7 +57,7 @@ class App extends Component {
   }
   
   render() {
-    console.log('LANGUAGE:', this.state.selectedLanguage);
+    // console.log('LANGUAGE:', this.state.selectedLanguage);
     return (
       <div className="App">
         <Nav className="header" search={this.handleChange} language={this.handleLanguage} selectedLanguage={this.state.selectedLanguage}/>

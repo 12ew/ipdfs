@@ -20,7 +20,7 @@ class BookItem extends React.Component {
                     <span><p className="meta">Language:</p> <p>{language}</p></span><br/>
                     <span><p className="meta">Pages:</p> <p>{num_pages}</p></span>
                     <a href={file} target="_blank">
-                        <Button compact size='mini' basic positive>
+                        <Button className="button" compact size='mini' basic positive>
                             <Icon name="download" />Download
                             </Button>
                     </a>

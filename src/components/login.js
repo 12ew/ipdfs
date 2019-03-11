@@ -67,7 +67,7 @@ class Login extends React.Component {
                   <input type="password" placeholder='******' onChange={this.handleChange} name="password"/>
               </Form.Field>
 
-              <Form.Field type="submit"><Button size="medium" className="ui color1 button" type="submit">Login</Button></Form.Field>
+              <Form.Field type="submit"><Button size="tiny" className="ui color1 button" type="submit">Login</Button></Form.Field>
           </Form>
       </div>
     ); } else {

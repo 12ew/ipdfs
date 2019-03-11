@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addNewBook, fetchAllAuthors, fetchAllGenres, getReauth } from '../actions/index';
-import { Button, Form, Input, Dropdown, TextArea } from 'semantic-ui-react'
+import { Button, Form, Input, Select, TextArea } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
+
+const options = [
+    { key: 'eng', text: 'English', value: 'english' },
+    { key: 'ara', text: 'عربى', value: 'عربى' },
+    { key: 'urd', text: 'اردو', value: 'اردو' },
+    { key: 'fra', text: 'Français', value: 'français' },
+    { key: 'esp', text: 'Español', value: 'español' }
+]
 
 class AddBook extends Component {
     constructor() {
@@ -50,9 +58,18 @@ class AddBook extends Component {
 
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        // console.log(e.target.value)
+        // console.log(e.target.innerText)
+        if (e.target.value) {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        } else {
+            const newState = { ...this.state, language: e.target.innerText };
+            this.setState({
+                newState
+            })
+        }
     }
 
     componentDidMount() {
@@ -70,13 +87,13 @@ render() {
                 <h3>ADD A NEW BOOK</h3>
             </div>
             <br/>
-            <Form id="book-form" size="medium" onSubmit={this.handleSubmit}>
+            <Form id="book-form" size="small" onSubmit={this.handleSubmit}>
                 
                     <Form.Field control={Input} value={this.state.eng_title} label='English Title' placeholder='Aqeedah Al Waasitiyyah' id="item-name" onChange={this.handleChange} name="eng_title"/>
                     
                     <Form.Field control={Input} value={this.state.arabic_title} label='Arabic Title' placeholder='شرح حديث جبريل لشيخ الإسلام ابن تيمية' onChange={this.handleChange} name="arabic_title"/>
                     
-                    <Form.Field control={Input} value={this.state.language} label='Language' placeholder='Arabic'  onChange={this.handleChange} name="language" />
+                    <Form.Select fluid options={options} label='Language' placeholder='Select language'  onChange={this.handleChange} name="language" />
                     
                     <label><strong>Author</strong></label>
                     <select
@@ -110,6 +127,7 @@ render() {
                 <br/>
                 <Form.Field control={TextArea} value={this.state.about} label='About' placeholder='A book by Shaykh al Islam Ibn Taymiyyah' type="number" min="0" onChange={this.handleChange} name="about"/>
                 <br/>
+                <br/>
                 <Form.Field type="submit"><Button size="medium" className="ui button" type="submit">Submit</Button></Form.Field>
             </Form>
         </div>
@@ -126,4 +144,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { addNewBook, fetchAllAuthors, fetchAllGenres, getReauth  })(AddBook)
+export default connect(mapStateToProps, { addNewBook, fetchAllAuthors, fetchAllGenres, getReauth })(AddBook)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Menu, Dropdown } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/index';
 import logo from '../spdfslogo.svg'
@@ -18,11 +18,15 @@ class Nav extends Component {
         localStorage.clear()
     }
 
+    handleAddPdf = () => {
+        this.props.history.push('/book')
+    }
+
     render() {
         // console.log(this.props.selectedLanguage)
         const { activeItem } = this.state
         return (
-            <Menu pointing secondary className="nav-header">
+            <Menu pointing className="nav-header">
                 <Menu.Menu id='logo' position='left'>
                     <Menu.Item>
                         <Link to='/home'>
@@ -37,19 +41,13 @@ class Nav extends Component {
                     onClick={this.handleItemClick} 
                     onMouseDown={this.props.language}
                 />
-                <Menu.Item 
-                    name='Arabic' 
-                    active={activeItem === 'Arabic'} 
-                    onClick={this.handleItemClick} 
-                    onMouseDown={this.props.language}
-                />
                 <Menu.Item
                     name='English'
                     active={activeItem === 'English'}
                     onClick={this.handleItemClick}
                     onMouseDown={this.props.language}
                 />
-                <Menu.Item
+                {/* <Menu.Item
                     name='اردو'
                     active={activeItem === 'اردو'}
                     onClick={this.handleItemClick}
@@ -66,7 +64,7 @@ class Nav extends Component {
                     active={activeItem === 'Español'}
                     onClick={this.handleItemClick}
                     onMouseDown={this.props.language}
-                />
+                /> */}
                 <Dropdown item text='Categories'>
                     <Dropdown.Menu >
                         <Link to="/aqeedah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عقيدة" : "Aqeedah"}</Dropdown.Item></Link>
@@ -84,20 +82,20 @@ class Nav extends Component {
                     </Menu.Item>
 
                 { this.props.currentUser.id ?
-                <Link to='/book'>
                     <Menu.Item
                         name='Add PDF'
                         active={activeItem === 'Add PDF'}
                         onClick={this.handleItemClick}
-                    />
-                </Link> : null}
+                        onMouseDown={this.handleAddPdf}
+                    /> : null}
                     
 
                     { this.props.currentUser.id ?
                 <Menu.Item
                     name='logout'
                     active={activeItem === 'Logout'}
-                    onClick={this.handleItemClick, this.handleLogout}
+                    onClick={ this.handleItemClick }
+                    onMouseDown={this.handleLogout}
                     /> : null }
                 </Menu.Menu>
             </Menu>
@@ -111,4 +109,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { logout })(Nav)
+export default withRouter(connect(mapStateToProps, { logout })(Nav))
