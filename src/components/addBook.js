@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addNewBook, fetchAllAuthors, fetchAllGenres, getReauth } from '../actions/index';
-import { Button, Form, Input, Select, TextArea } from 'semantic-ui-react'
+import { Button, Form, Input, TextArea } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 
 const options = [

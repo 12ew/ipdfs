@@ -1,4 +1,4 @@
-import { GET_ALL_BOOKS, GET_BOOKS_BY_AUTHOR, GET_BOOKS_BY_GENRE, ADD_BOOK, ADD_AUTHOR, ADD_GENRE } from "../actions/types";
+import { GET_ALL_BOOKS, GET_BOOKS_BY_AUTHOR, GET_BOOKS_BY_GENRE, ADD_BOOK } from "../actions/types";
 
 export const bookReducer = (state = { booksList: [], selectedBook: {} }, action) => {
     switch (action.type) {

@@ -41,12 +41,13 @@ class Arabic extends React.Component {
 
                     <div>
                         <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عربية" : "Arabic"}</p></span><br />
-                        <Divider section />
+                        { this.arabicBooksArray().length > 0 ?
+                        <div><Divider section />
                         <Card.Group centered itemsPerRow={6}>
                             {this.arabicBooksArray()}
                         </Card.Group>
 
-                        <Divider section />
+                        <Divider section /></div> : this.props.language === "عربى" ? <p>سنزد كتب إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
                     </div>
                     :
                     <Card.Group centered itemsPerRow={6}>

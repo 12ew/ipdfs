@@ -143,7 +143,7 @@ export function getReauth() {
     const token = localStorage.getItem('jwt')
 
     if (token) {
-        console.log(token);
+        // console.log(token);
         const options = {
             headers: {
                 'Content-Type': 'application/json',

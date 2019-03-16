@@ -47,24 +47,6 @@ class Nav extends Component {
                     onClick={this.handleItemClick}
                     onMouseDown={this.props.language}
                 />
-                {/* <Menu.Item
-                    name='اردو'
-                    active={activeItem === 'اردو'}
-                    onClick={this.handleItemClick}
-                    onMouseDown={this.props.language}
-                />
-                <Menu.Item
-                    name='Français'
-                    active={activeItem === 'Français'}
-                    onClick={this.handleItemClick}
-                    onMouseDown={this.props.language}
-                />
-                <Menu.Item
-                    name='Español'
-                    active={activeItem === 'Español'}
-                    onClick={this.handleItemClick}
-                    onMouseDown={this.props.language}
-                /> */}
                 <Dropdown item text='Categories'>
                     <Dropdown.Menu >
                         <Link to="/aqeedah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عقيدة" : "Aqeedah"}</Dropdown.Item></Link>
@@ -78,7 +60,9 @@ class Nav extends Component {
                 </Dropdown>
                 <Menu.Menu position='right'>
                     <Menu.Item onChange={this.props.search}>
-                        <Input icon='search' placeholder='Search...' />
+                        {this.props.selectedLanguage === "عربى" ?
+                        <Input icon='search' placeholder='...إبحث' /> :
+                        <Input icon='search' placeholder='Search...' /> }
                     </Menu.Item>
 
                 { this.props.currentUser.id ?

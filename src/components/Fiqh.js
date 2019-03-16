@@ -33,7 +33,7 @@ class Fiqh extends React.Component {
     }
 
     render() {
-        console.log(this.props.language)
+        // console.log(this.props.language)
         // console.log(this.state.language)
         return (
             <div className="booksList">
@@ -41,12 +41,14 @@ class Fiqh extends React.Component {
 
                     <div>
                         <span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p></span><br />
-                        <Divider section />
+                        
+                        { this.fiqhBooksArray().length > 0 ?
+                        <div><Divider section />
                         <Card.Group centered itemsPerRow={6}>
                             {this.fiqhBooksArray()}
                         </Card.Group>
 
-                        <Divider section />
+                        <Divider section /></div> : this.props.language === "عربى" ? <p>سنزد كتب إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
                     </div>
                     :
                     <Card.Group centered itemsPerRow={6}>
