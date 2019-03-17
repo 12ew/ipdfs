@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    console.log("search", e.target.value);
+    // console.log("search", e.target.value);
       this.setState({
           searchTerm: e.target.value.toLowerCase()
       })
@@ -51,6 +51,7 @@ class App extends Component {
 
   filteredBooks = () => {
       return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
+        console.log("Was just ran")
           return (book.eng_title.toLowerCase().includes(this.state.searchTerm) || book.arabic_title.includes(this.state.searchTerm) 
             || book.author.name.toLowerCase().includes(this.state.searchTerm)) && (book.language === this.state.selectedLanguage)
       })
@@ -69,15 +70,15 @@ class App extends Component {
               <Route exact path="/genre" component={AddGenre}/>
               <Route exact path="/book" component={AddBook}/>
 
-              <Route exact path="/home" render={() => <BookView searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/home" render={() => <BookView searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
 
-              <Route exact path="/aqeedah" render={() => <Aqeedah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
-              <Route exact path="/fiqh" render={() => <Fiqh searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
-              <Route exact path="/hadeeth" render={() => <Hadeeth searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
-              <Route exact path="/mutoon" render={() => <Mutoon searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
-              <Route exact path="/tafseer" render={() => <Tafseer searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
-              <Route exact path="/seerah" render={() => <Seerah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
-              <Route exact path="/arabic" render={() => <Arabic searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks()} language={this.state.selectedLanguage} />} />
+              <Route exact path="/aqeedah" render={() => <Aqeedah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/fiqh" render={() => <Fiqh searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/hadeeth" render={() => <Hadeeth searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/mutoon" render={() => <Mutoon searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/tafseer" render={() => <Tafseer searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/seerah" render={() => <Seerah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/arabic" render={() => <Arabic searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
 
             </div>
           </Switch>

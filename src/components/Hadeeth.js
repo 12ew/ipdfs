@@ -21,13 +21,15 @@ class Hadeeth extends React.Component {
 
     hadeethBooksArray = () => {
         return this.hadeethBooks().map(book => {
+            console.log("Book in hadeeth books array:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
 
     // Search/Filtered books
     filteredBooks = () => {
-        return this.props.filteredBooks.map(book => {
+        return this.props.filteredBooks().map(book => {
+            console.log("Book in hadeeth:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
@@ -48,7 +50,7 @@ class Hadeeth extends React.Component {
                             {this.hadeethBooksArray()}
                         </Card.Group>
 
-                        <Divider section /></div> : this.props.language === "عربى" ? <p>سنزد كتب إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
+                                <Divider section /></div> : this.props.language === "عربى" ? <p>سنضيف كتب قريبا إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
 
                     </div>
                     :

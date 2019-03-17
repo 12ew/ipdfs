@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 
 class BookItem extends React.Component {
 
-    handItemClick = () => {
-        const bookItem = document.querySelector(".bookItem")
-        console.log(bookItem)
-    }
+    // handItemClick = () => {
+    //     const bookItem = document.querySelector(".bookItem")
+    //     console.log(bookItem)
+    // }
         
     render(){
-        // console.log(this.props.book)
+        // console.log(this.props)
         const { eng_title, arabic_title, language, num_pages, file, image } = this.props.book
         const englishTitle = eng_title.toLowerCase()
                             .split(' ').map((s) => s.charAt(0)
@@ -31,7 +31,7 @@ class BookItem extends React.Component {
                             <Icon name="download" />Download
                             </Button>
                     </a> :
-                    <Button className="button" compact size='mini' basic positive onClick={this.handItemClick}>
+                    <Button className="button" compact size='mini' basic positive>
                         Edit
                     </Button>}
                 </div>

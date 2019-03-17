@@ -58,19 +58,24 @@ class AddBook extends Component {
 
 
     handleChange = (e) => {
-        // console.log(e.target.value)
-        // console.log(e.target.innerText)
-        if (e.target.value) {
-            this.setState({
-                [e.target.name]: e.target.value
-            })
-        } else {
-            const newState = { ...this.state, language: e.target.innerText };
-            this.setState({
-                newState
-            })
-        }
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
+
+    // handleChange = (e) => {
+    //     if (e.target.value) {
+    //         this.setState({
+    //             [e.target.name]: e.target.value
+    //         })
+    //     } else {
+    //         const newState = { ...this.state, language: e.target.innerText };
+    //         console.log(newState)
+    //         this.setState({
+    //             newState
+    //         })
+    //     }
+    // }
 
     componentDidMount() {
         this.props.fetchAllAuthors()
@@ -93,7 +98,8 @@ render() {
                     
                     <Form.Field control={Input} value={this.state.arabic_title} label='Arabic Title' placeholder='شرح حديث جبريل لشيخ الإسلام ابن تيمية' onChange={this.handleChange} name="arabic_title"/>
                     
-                    <Form.Select fluid options={options} label='Language' placeholder='Select language'  onChange={this.handleChange} name="language" />
+                    {/* <Form.Select fluid label='Language' options={options} placeholder='Select language' onChange={this.handleChange} name="language"/> */}
+                    <Form.Field control={Input} value={this.state.language} label='Language' placeholder='Select language'  onChange={this.handleChange} name="language" />
                     
                     <label><strong>Author</strong></label>
                     <select

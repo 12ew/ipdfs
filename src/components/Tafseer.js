@@ -21,13 +21,15 @@ class Tafseer extends React.Component {
 
     tafseerBooksArray = () => {
         return this.tafseerBooks().map(book => {
+            console.log("Book in tafseer books array:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
 
     // Search/Filtered books
     filteredBooks = () => {
-        return this.props.filteredBooks.map(book => {
+        return this.props.filteredBooks().map(book => {
+            console.log("Filtered books in tafseer:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
@@ -47,7 +49,7 @@ class Tafseer extends React.Component {
                             {this.tafseerBooksArray()}
                         </Card.Group>
 
-                        <Divider section /></div> : this.props.language === "عربى" ? <p>سنزد كتب إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
+                                <Divider section /></div> : this.props.language === "عربى" ? <p>سنضيف كتب قريبا إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
                     </div>
                     :
                     <Card.Group centered itemsPerRow={6}>

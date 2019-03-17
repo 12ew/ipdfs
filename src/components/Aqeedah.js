@@ -27,7 +27,7 @@ class Aqeedah extends React.Component {
 
     // Search/Filtered books
     filteredBooks = () => {
-        return this.props.filteredBooks.map(book => {
+        return this.props.filteredBooks().map(book => {
             return <BookItem key={book.id} book={book} />
         })
     }
@@ -48,12 +48,15 @@ class Aqeedah extends React.Component {
                             {this.aqeedahBooksArray()}
                         </Card.Group>
 
-                        <Divider section /></div> : this.props.language === "عربى" ? <p>سنزد كتب إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
+                                <Divider section /></div> : this.props.language === "عربى" ? <p>سنضيف كتب قريبا إن شاء الله</p> : <p>We're working on adding books to this section.</p> }
                     </div>
                     :
-                    <Card.Group centered itemsPerRow={4}>
+                    <div>
+                        <h4>Filtered Books</h4>
+                        <Card.Group centered itemsPerRow={4}>
                         {this.filteredBooks()}
-                    </Card.Group>}
+                        </Card.Group>
+                    </div> }
             </div>
         )
     }
