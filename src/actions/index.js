@@ -15,7 +15,7 @@ import {
 
 export function fetchAllBooks() {
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/books`)
+        fetch(`https://spdfs.herokuapp.com/api/v1/books`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_ALL_BOOKS, payload: data })
@@ -27,7 +27,7 @@ export function fetchAllBooks() {
 
 export function fetchAllBooksByAuthor(id) {
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/authors/${id}/books`)
+        fetch(`https://spdfs.herokuapp.com/api/v1/authors/${id}/books`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_BOOKS_BY_AUTHOR, payload: data })
@@ -39,7 +39,7 @@ export function fetchAllBooksByAuthor(id) {
 
 export function fetchAllAuthors() {
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/authors`)
+        fetch(`https://spdfs.herokuapp.com/api/v1/authors`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_AUTHORS, payload: data })
@@ -51,7 +51,7 @@ export function fetchAllAuthors() {
 
 export function fetchAllBooksByGenre(id) {
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/genres/${id}/books`)
+        fetch(`https://spdfs.herokuapp.com/api/v1/genres/${id}/books`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_BOOKS_BY_GENRE, payload: data })
@@ -63,7 +63,7 @@ export function fetchAllBooksByGenre(id) {
 
 export function fetchAllGenres() {
     return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/genres`)
+        fetch(`https://spdfs.herokuapp.com/api/v1/genres`)
         .then(resp => resp.json())
         .then(data => {
             dispatch({ type: GET_GENRES, payload: data })
@@ -75,7 +75,7 @@ export function fetchAllGenres() {
 
 export function addNewBook(newBook) {
     return(dispatch) => {
-        fetch(`http://localhost:3000/api/v1/books`, {
+        fetch(`https://spdfs.herokuapp.com/api/v1/books`, {
             method: 'POST',
             headers: { 
                 'Content-type': 'application/json',
@@ -94,7 +94,7 @@ export function addNewBook(newBook) {
 
 export function addNewAuthor(newAuthor) {
     return(dispatch) => {
-        fetch(`http://localhost:3000/api/v1/authors`, {
+        fetch(`https://spdfs.herokuapp.com/api/v1/authors`, {
             method: 'POST',
             headers: { 
                 'Content-type': 'application/json',
@@ -113,7 +113,7 @@ export function addNewAuthor(newAuthor) {
 
 export function addNewGenre(newGenre) {
     return(dispatch) => {
-        fetch(`http://localhost:3000/api/v1/genres`, {
+        fetch(`https://spdfs.herokuapp.com/api/v1/genres`, {
             method: 'POST',
             headers: { 
                 'Content-type': 'application/json',
@@ -152,7 +152,7 @@ export function getReauth() {
             }
         }
         return(dispatch) => {
-            fetch(`http://localhost:3000/api/v1/reauth`, options)
+            fetch(`https://spdfs.herokuapp.com/api/v1/reauth`, options)
             .then(resp => resp.json())
             .then(user => {
                 dispatch(getLogin(user))

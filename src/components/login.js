@@ -28,7 +28,7 @@ class Login extends React.Component {
         },
         body: JSON.stringify(this.state)
       }
-      fetch(`http://localhost:3000/api/v1/login`, options)
+      fetch(`https://spdfs.herokuapp.com/api/v1/login`, options)
       .then(resp => resp.json())
       .then(user => {
           localStorage.setItem('jwt', user.jwt)
