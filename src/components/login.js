@@ -31,7 +31,9 @@ class Login extends React.Component {
       fetch(`https://spdfs.herokuapp.com/api/v1/login`, options)
       .then(resp => resp.json())
       .then(user => {
+          // console.log("Hit this")
           localStorage.setItem('jwt', user.jwt)
+          // console.log(user.jwt)
           this.props.getLogin(user)
           // this.props.history.push('/')
       })

@@ -51,7 +51,7 @@ class App extends Component {
 
   filteredBooks = () => {
       return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
-        console.log("Was just ran")
+        // console.log("Was just ran")
           return (book.eng_title.toLowerCase().includes(this.state.searchTerm) || book.arabic_title.includes(this.state.searchTerm) 
             || book.author.name.toLowerCase().includes(this.state.searchTerm)) && (book.language === this.state.selectedLanguage)
       })

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="134px" height="19px" viewBox="0 0 134 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="67px" height="10px" viewBox="0 0 67 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
     <title>hiqmaLogo Copy 2</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="hiqmaLogo-Copy-2" transform="translate(-18.000000, -17.000000)">
-            <rect id="Rectangle" x="0" y="0" width="172" height="51.2340426"></rect>
-            <text id="Sunnah" font-family="Comfortaa-Bold, Comfortaa" font-size="24.9516441" font-style="expanded" font-weight="bold" letter-spacing="-0.0199613151" fill="#006C35">
-                <tspan x="18.6305609" y="34.6441006">Sunnah</tspan>
+        <g id="hiqmaLogo-Copy-2" transform="translate(-9.000000, -8.000000)">
+            <rect id="Rectangle" x="0" y="0" width="86" height="25.6170213"></rect>
+            <text id="Sunnah" font-family="Comfortaa-Bold, Comfortaa" font-size="12.4758221" font-style="expanded" font-weight="bold" letter-spacing="-0.00998065714" fill="#006C35">
+                <tspan x="9.31528046" y="16.8220503">Sunnah</tspan>
             </text>
-            <text id="PDFs" font-family="Comfortaa-Thin, Comfortaa" font-size="24.9516441" font-style="condensed" font-weight="300" letter-spacing="-0.0199613151" fill="#006C35">
-                <tspan x="103.133462" y="34.6441006">PDFs</tspan>
+            <text id="PDFs" font-family="Comfortaa-Thin, Comfortaa" font-size="12.4758221" font-style="condensed" font-weight="300" letter-spacing="-0.00998065714" fill="#006C35">
+                <tspan x="51.5667311" y="16.8220503">PDFs</tspan>
             </text>
         </g>
     </g>

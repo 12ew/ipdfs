@@ -31,7 +31,7 @@ class AddAuthor extends Component {
 
     e.target.reset()
 
-    this.props.history.push('/author')
+    this.props.history.push('/book')
     }
 
 

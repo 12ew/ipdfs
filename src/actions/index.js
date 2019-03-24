@@ -156,7 +156,7 @@ export function getReauth() {
             .then(resp => resp.json())
             .then(user => {
                 dispatch(getLogin(user))
-                // console.log(user)
+                console.log(user)
             })
         }
     } else {
