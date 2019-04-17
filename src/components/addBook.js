@@ -53,7 +53,7 @@ class AddBook extends Component {
 
     e.target.reset()
 
-    this.props.history.push('/home')
+    this.props.history.push('/')
     }
 
 
