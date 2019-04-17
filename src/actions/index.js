@@ -3,6 +3,7 @@ import {
     GET_BOOKS_BY_AUTHOR,
     GET_BOOKS_BY_GENRE,
     ADD_BOOK,
+    EDIT_BOOK,
     ADD_AUTHOR,
     GET_AUTHORS,
     ADD_GENRE,
@@ -90,6 +91,25 @@ export function addNewBook(newBook) {
     }
 }
 
+// EDIT BOOK
+
+export function editBook(newBook, id) {
+    return(dispatch) => {
+        fetch(`https://spdfs.herokuapp.com/api/v1/books/${id}`, {
+            method: 'PUT',
+            headers: { 
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(newBook)
+        })
+        .then(resp => resp.json())
+        .then(book => { 
+            dispatch({ type: EDIT_BOOK, payload: book })
+        })
+    }
+}
+
 // ADD NEW AUTHOR
 
 export function addNewAuthor(newAuthor) {
@@ -143,7 +163,6 @@ export function getReauth() {
     const token = localStorage.getItem('jwt')
 
     if (token) {
-        // console.log(token);
         const options = {
             headers: {
                 'Content-Type': 'application/json',
@@ -156,7 +175,6 @@ export function getReauth() {
             .then(resp => resp.json())
             .then(user => {
                 dispatch(getLogin(user))
-                console.log(user)
             })
         }
     } else {

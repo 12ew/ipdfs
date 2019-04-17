@@ -12,7 +12,6 @@ class Login extends React.Component {
     };
 
     handleChange = (e) => {
-      // console.log(e.target.value)
       this.setState({
         [e.target.name]: e.target.value
       })
@@ -31,9 +30,7 @@ class Login extends React.Component {
       fetch(`https://spdfs.herokuapp.com/api/v1/login`, options)
       .then(resp => resp.json())
       .then(user => {
-          // console.log("Hit this")
           localStorage.setItem('jwt', user.jwt)
-          // console.log(user.jwt)
           this.props.getLogin(user)
           // this.props.history.push('/')
       })
@@ -41,7 +38,6 @@ class Login extends React.Component {
 
 
   render(){
-    // console.log(this.props)
     if (!this.props.currentUser.id) {
     return(
       <div id="form">

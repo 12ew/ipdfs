@@ -21,9 +21,6 @@ class AddGenre extends Component {
             name: this.state.name
         }
 
-        // console.log(this.props)
-        // console.log(newBook)
-
     this.props.addNewGenre(newGenre)
 
     e.target.reset()
@@ -33,21 +30,16 @@ class AddGenre extends Component {
 
 
     handleChange = (e) => {
-        // console.log(e.target);
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     componentDidMount() {
-        // console.log(this.props)
         this.props.getReauth()
     }
 
 render() {
-    // console.log(this.props.currentUser)
-    // console.log(localStorage.getItem('jwt'))
-    
     return (
         (localStorage.getItem('jwt') == null) ? <Redirect to='/login'/> : 
         <div>

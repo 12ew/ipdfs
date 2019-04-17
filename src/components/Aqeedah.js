@@ -33,8 +33,6 @@ class Aqeedah extends React.Component {
     }
 
     render() {
-        // console.log(this.props.language)
-        // console.log(this.state.language)
         return (
             <div className="booksList">
                 {(this.props.searchTerm === '') ?

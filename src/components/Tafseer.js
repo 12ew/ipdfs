@@ -21,7 +21,6 @@ class Tafseer extends React.Component {
 
     tafseerBooksArray = () => {
         return this.tafseerBooks().map(book => {
-            console.log("Book in tafseer books array:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
@@ -29,14 +28,13 @@ class Tafseer extends React.Component {
     // Search/Filtered books
     filteredBooks = () => {
         return this.props.filteredBooks().map(book => {
-            console.log("Filtered books in tafseer:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
 
     render() {
-        // console.log(this.props.language)
-        // console.log(this.state.language)
+        // (this.props.language)
+        // (this.state.language)
         return (
             <div className="booksList">
                 {(this.props.searchTerm === '') ?

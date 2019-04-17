@@ -63,20 +63,6 @@ class AddBook extends Component {
         })
     }
 
-    // handleChange = (e) => {
-    //     if (e.target.value) {
-    //         this.setState({
-    //             [e.target.name]: e.target.value
-    //         })
-    //     } else {
-    //         const newState = { ...this.state, language: e.target.innerText };
-    //         console.log(newState)
-    //         this.setState({
-    //             newState
-    //         })
-    //     }
-    // }
-
     componentDidMount() {
         this.props.fetchAllAuthors()
         this.props.fetchAllGenres()

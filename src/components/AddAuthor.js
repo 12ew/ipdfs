@@ -24,9 +24,6 @@ class AddAuthor extends Component {
             yod: this.state.yod
         }
 
-        // console.log(this.props)
-        // console.log(newBook)
-
     this.props.addNewAuthor(newAuthor)
 
     e.target.reset()
@@ -36,23 +33,17 @@ class AddAuthor extends Component {
 
 
     handleChange = (e) => {
-        // console.log(e.target);
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     componentDidMount() {
-        console.log("hi")
-        console.log(this.props.currentUser.id)
         this.props.getReauth()
     }
 
 
 render() {
-    // console.log("hitting this")
-    // console.log(this.props.currentUser)
-    
     return (
         (localStorage.getItem('jwt') == null) ? <Redirect to='/login'/> : 
         <div className = "create-book">

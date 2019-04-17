@@ -23,14 +23,14 @@ class Nav extends Component {
     }
 
     render() {
-        // console.log(this.props.selectedLanguage)
+
         const { activeItem } = this.state
         return (
             <Menu pointing className="nav-header" size='small'>
                 
                     <Menu.Menu id='logo' position='left'>
                         <Menu.Item>
-                            <Link to='/home'>
+                            <Link to='/'>
                                 <img src={logo} alt='this is the logo for spdfs'/>
                             </Link>
                         </Menu.Item>
@@ -49,7 +49,7 @@ class Nav extends Component {
                             onClick={this.handleItemClick}
                             onMouseDown={this.props.language}
                         />
-                    <Dropdown item text='Categories' style={{ width: "95px" }}>
+                    <Dropdown item text='Categories' style={{ width: "100px" }}>
                             <Dropdown.Menu >
                                 <Link to="/aqeedah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عقيدة" : "Aqeedah"}</Dropdown.Item></Link>
                                 <Link to="/hadeeth"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "حديث" : "Hadeeth"}</Dropdown.Item></Link>

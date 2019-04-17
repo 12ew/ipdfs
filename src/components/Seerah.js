@@ -33,8 +33,8 @@ class Seerah extends React.Component {
     }
 
     render() {
-        // console.log(this.props.language)
-        // console.log(this.state.language)
+        // (this.props.language)
+        // (this.state.language)
         return (
             <div className="booksList">
                 {(this.props.searchTerm === '') ?

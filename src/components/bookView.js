@@ -87,14 +87,12 @@ class BookView extends React.Component {
     // Hadeeth books
     hadeethBooks = () => {
         return this.props.books.booksList === [] ? null : this.props.books.booksList.filter(book => {
-            console.log(book)
             return (book.genre.name === "Hadeeth") && (book.language === this.props.language)
         })
     }
 
     hadeethBooksArray = () => {
         return this.hadeethBooks().map(book => {
-            console.log(book)
                 return <BookItem key={book.id} book={book}/>
             })
     }
@@ -120,8 +118,6 @@ class BookView extends React.Component {
     }
 
     render(){
-        // console.log(this.props.language)
-        // console.log(this.state.language)
         return(
             <div className="booksList">
                 {(this.props.searchTerm === '') ?

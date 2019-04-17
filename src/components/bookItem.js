@@ -1,17 +1,13 @@
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon} from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import EditBook from './EditBook'
 
 class BookItem extends React.Component {
-
-    // handItemClick = () => {
-    //     const bookItem = document.querySelector(".bookItem")
-    //     console.log(bookItem)
-    // }
         
     render(){
-        // console.log(this.props)
-        const { eng_title, arabic_title, language, num_pages, file, image } = this.props.book
+        const { id, eng_title, arabic_title, language, num_pages, file, image, author, genre, translator, about, harakat } = this.props.book
         const englishTitle = eng_title.toLowerCase()
                             .split(' ').map((s) => s.charAt(0)
                             .toUpperCase() + s.substring(1))
@@ -22,7 +18,6 @@ class BookItem extends React.Component {
                 <div className="column">
                     <p className="title">{englishTitle}</p>
                     <p className="title">{arabic_title}</p>
-                    {/* <span><p className="meta">Author:</p> <p>{author.name}</p></span> */}
                     <span><p className="meta">Language:</p> <p>{language}</p></span><br/>
                     <span><p className="meta">Pages:</p> <p>{num_pages}</p></span>
                     { !this.props.currentUser.id ?
@@ -31,9 +26,25 @@ class BookItem extends React.Component {
                             <Icon name="download" />Download
                             </Button>
                     </a> :
-                    <Button className="button" compact size='mini' basic positive>
+                        <Link to={{
+                            pathname: `/editbook/${id}`,
+                            state: {
+                                id,
+                                englishTitle,
+                                image,
+                                file,
+                                arabic_title,
+                                language,
+                                num_pages,
+                                author,
+                                genre,
+                                translator,
+                                about,
+                                harakat
+                            }
+                        }}><Button className="button" compact size='mini' basic positive onClick={this.handleEdit}>
                         Edit
-                    </Button>}
+                    </Button></Link>}
                 </div>
                 <br />
             </div>

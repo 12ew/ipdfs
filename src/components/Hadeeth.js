@@ -21,7 +21,6 @@ class Hadeeth extends React.Component {
 
     hadeethBooksArray = () => {
         return this.hadeethBooks().map(book => {
-            console.log("Book in hadeeth books array:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
@@ -29,14 +28,11 @@ class Hadeeth extends React.Component {
     // Search/Filtered books
     filteredBooks = () => {
         return this.props.filteredBooks().map(book => {
-            console.log("Book in hadeeth:", book)
             return <BookItem key={book.id} book={book} />
         })
     }
 
     render() {
-        // console.log(this.props.language)
-        // console.log(this.state.language)
         return (
             <div className="booksList">
                 {(this.props.searchTerm === '') ?
