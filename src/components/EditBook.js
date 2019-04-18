@@ -12,22 +12,23 @@ const options = [
     { key: 'esp', text: 'Español', value: 'español' }
 ]
 
-class AddBook extends Component {
-    constructor() {
-        super()
-
+class EditBook extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
-            eng_title: '',
-            arabic_title: '',
-            language: '',
-            about: '',
-            num_pages: '',
-            translator: '',
-            author_id: '',
-            genre_id: '',
-            harakat: '',
-            image: '',
-            file: ''
+            eng_title: this.props.location.state.englishTitle || '',
+            arabic_title: this.props.location.state.arabic_title || '',
+            language: this.props.location.state.language || '',
+            about: this.props.location.state.about || '',
+            num_pages: this.props.location.state.num_pages || '',
+            translator: this.props.location.state.translator || '',
+            author_id: this.props.location.state.author.id || '',
+            genre_id: this.props.location.state.genre.id || '',
+            harakat: this.props.location.state.harakat || '',
+            image: this.props.location.state.image || '',
+            file: this.props.location.state.file || '',
+            author: this.props.location.state.author || '',
+            genre: this.props.location.state.genre || ''
         }
         this.handleChange = this.handleChange.bind(this)
     }
@@ -46,9 +47,10 @@ class AddBook extends Component {
             author_id: this.state.author_id,
             genre_id: this.state.genre_id,
             harakat: this.state.harakat,
-            trip_id: this.state.trip_id,
             image: this.state.image,
-            file: this.state.file
+            file: this.state.file,
+            author: this.state.author,
+            genre: this.state.genre,
         }
 
         this.props.editBook(newBook, id)
@@ -56,6 +58,7 @@ class AddBook extends Component {
         e.target.reset()
 
         this.props.history.push('/')
+        window.location.reload();
     }
 
 
@@ -96,7 +99,7 @@ class AddBook extends Component {
                             placeholder="Author"
                             onChange={this.handleChange}>
                             {this.props.authors.authorsList.map((item) => {
-                                return (<option key={item.id} defaultValue={item.id}> {item.name} </option>);
+                                return (<option key={item.id} defaultValue={item.id}> {item.id} - {item.name} </option>);
                             })}
                         </select>
                         <br />
@@ -106,7 +109,7 @@ class AddBook extends Component {
                             placeholder="Genre"
                             onChange={this.handleChange}>
                             {this.props.genres.genresList.map((item) => {
-                                return (<option key={item.id} defaultValue={item.id}> {item.name} </option>);
+                                return (<option key={item.id} defaultValue={item.id}> {item.id} - {item.name}</option>);
                             })}
                         </select>
                         <br />
@@ -123,7 +126,7 @@ class AddBook extends Component {
                         <Form.Field control={TextArea} defaultValue={about} label='About' placeholder='A book by Shaykh al Islam Ibn Taymiyyah' type="number" min="0" onChange={this.handleChange} name="about" />
                         <br />
                         <br />
-                        <Button size="medium" className="ui button" type="submit">Edit</Button>
+                        <Button size="medium" className="ui button" type="submit">Save</Button>
                     </Form>
                 </div>
         );
@@ -139,4 +142,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { editBook, fetchAllAuthors, fetchAllGenres, getReauth })(AddBook)
+export default connect(mapStateToProps, { editBook, fetchAllAuthors, fetchAllGenres, getReauth })(EditBook)

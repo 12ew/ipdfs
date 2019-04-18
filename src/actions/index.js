@@ -97,9 +97,11 @@ export function editBook(newBook, id) {
     return(dispatch) => {
         fetch(`https://spdfs.herokuapp.com/api/v1/books/${id}`, {
             method: 'PUT',
+            mode: 'cors',
             headers: { 
                 'Content-type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                "Access-Control-Request-Headers": "*",
             },
             body: JSON.stringify(newBook)
         })
