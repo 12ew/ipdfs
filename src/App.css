@@ -4,8 +4,8 @@
 }
 
 .booksList {
-  margin-top: 20px;
-  margin-left: 15px;
+  /* margin-top: 20px; */
+  margin-left: 115px;
 }
 
 .book-info {
@@ -60,7 +60,7 @@ html {
   width: 250px;
   border-radius: 12px;
   background-color: rgb(255, 255, 255);
-  margin: 10px;
+  margin: 15px;
   position: relative;
 }
 

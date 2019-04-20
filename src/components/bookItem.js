@@ -13,7 +13,7 @@ class BookItem extends React.Component {
                             .toUpperCase() + s.substring(1))
                             .join(' ');
         return(
-            <div className="ui link row bookItem">
+            <div className="ui link row bookItem centered">
                 <div className="column-left"><img align='left' className="ui small rounded image zoom" src={image} alt="book cover" /></div>
                 <div className="column">
                     <p className="title">{englishTitle}</p>
