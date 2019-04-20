@@ -5,6 +5,7 @@
 
 .booksList {
   margin-top: 20px;
+  margin-left: 15px;
 }
 
 .book-info {
@@ -26,7 +27,14 @@
 
 .nav-header {
   background: #006C35;
-  margin-top: 15px;
+  margin-top: 20px;
+  position: sticky;
+  z-index:1;
+  top: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* .card {
@@ -42,7 +50,7 @@
 }
 
 .metaText {
-  font-size: 10px;
+  font-size: 3px;
 }
 
 

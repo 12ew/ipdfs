@@ -8,16 +8,16 @@ import BookItem from './BookItem'
 class BookView extends React.Component {
 
     componentDidMount() {
-        // this.props.fetchAllBooks()
+        this.props.fetchAllBooks()
         this.props.getReauth()
     }
 
     // All books
-    // books = () => {
-    //     return this.props.books.booksList.map(book => {
-    //             return <BookItem key={book.id} book={book}/>
-    //         })
-    // }
+    books = () => {
+        return this.props.books.booksList.map(book => {
+                return <BookItem key={book.id} book={book}/>
+            })
+    }
 
     //Aqeedah books
     aqeedahBooks = () => {

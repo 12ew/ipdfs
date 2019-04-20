@@ -58,7 +58,6 @@ class EditBook extends Component {
         e.target.reset()
 
         this.props.history.push('/')
-        window.location.reload();
     }
 
 
