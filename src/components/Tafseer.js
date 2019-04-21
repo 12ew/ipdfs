@@ -33,8 +33,6 @@ class Tafseer extends React.Component {
     }
 
     render() {
-        // (this.props.language)
-        // (this.state.language)
         return (
             <div className="booksList">
                 {(this.props.searchTerm === '') ?

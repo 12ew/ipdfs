@@ -1,11 +1,9 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   background-color: rgb(240, 240, 240);
-}
-
-.booksList {
-  /* margin-top: 20px; */
-  margin-left: 115px;
 }
 
 .book-info {
@@ -37,9 +35,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* .card {
-  transform: scale(1, 1)
-} */
+.ui.cards {
+    display: flex !important;
+    margin: 0 !important; 
+    flex-wrap: wrap !important;
+}
 
 .arabic {
   font-size: 10px;
@@ -55,12 +55,13 @@ html {
 
 
 .row {
+  justify-content: center;
   padding: 10px;
   clear: both;
   width: 250px;
   border-radius: 12px;
   background-color: rgb(255, 255, 255);
-  margin: 15px;
+  margin: 10px;
   position: relative;
 }
 
@@ -165,6 +166,12 @@ span > p {
 
 .search {
   width: 120px;
+}
+
+.ui.cards {
+    display: flex !important;
+    margin: 0 !important; 
+    flex-wrap: wrap !important;
 }
 
 }

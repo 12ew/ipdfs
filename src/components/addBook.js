@@ -4,14 +4,6 @@ import { addNewBook, fetchAllAuthors, fetchAllGenres, getReauth } from '../actio
 import { Button, Form, Input, TextArea } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 
-const options = [
-    { key: 'eng', text: 'English', value: 'english' },
-    { key: 'ara', text: 'عربى', value: 'عربى' },
-    { key: 'urd', text: 'اردو', value: 'اردو' },
-    { key: 'fra', text: 'Français', value: 'français' },
-    { key: 'esp', text: 'Español', value: 'español' }
-]
-
 class AddBook extends Component {
     constructor() {
         super()
@@ -84,7 +76,6 @@ render() {
                     
                     <Form.Field control={Input} value={this.state.arabic_title} label='Arabic Title' placeholder='شرح حديث جبريل لشيخ الإسلام ابن تيمية' onChange={this.handleChange} name="arabic_title"/>
                     
-                    {/* <Form.Select fluid label='Language' options={options} placeholder='Select language' onChange={this.handleChange} name="language"/> */}
                     <Form.Field control={Input} value={this.state.language} label='Language' placeholder='Select language'  onChange={this.handleChange} name="language" />
                     
                     <label><strong>Author</strong></label>

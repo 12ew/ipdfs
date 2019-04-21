@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchAllBooks, getReauth } from '../actions/index';
 import { Card, Divider, Icon } from 'semantic-ui-react'
 import BookItem from './BookItem'
+import { Link } from 'react-router-dom';
 
 
 class BookView extends React.Component {
@@ -118,13 +119,20 @@ class BookView extends React.Component {
     }
 
     render(){
+        
+        const { language } = this.props.language
         return(
             <div className="booksList">
                 {(this.props.searchTerm === '') ?
 
                 <div>
                     {this.hadeethBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "حديث" : "Hadeeth"}</p> <a className="see-all" href="/hadeeth">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br /><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "حديث" : "Hadeeth"}</p> <Link className="see-all" to={{
+                                pathname: `/hadeeth`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br /><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.hadeethBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
@@ -135,7 +143,12 @@ class BookView extends React.Component {
 
                     
                     {this.aqeedahBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عقيدة" : "Aqeedah"}</p> <a className="see-all" href="/aqeedah">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عقيدة" : "Aqeedah"}</p> <Link className="see-all" to={{
+                                pathname: `/aqeedah`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.aqeedahBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
@@ -145,7 +158,12 @@ class BookView extends React.Component {
                     </div> : null }
 
                     {this.fiqhBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p> <a className="see-all" href="/fiqh">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "فقه" : "Fiqh"}</p> <Link className="see-all" to={{
+                                pathname: `/fiqh`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.fiqhBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
@@ -154,8 +172,14 @@ class BookView extends React.Component {
                     
                     </div> : null }
                     
+                    
                     {this.tafseerBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "تفسير" : "Tafseer"}</p> <a className="see-all" href="/tafseer">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "تفسير" : "Tafseer"}</p> <Link className="see-all" to={{
+                                pathname: `/tafseer`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.tafseerBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
@@ -165,7 +189,12 @@ class BookView extends React.Component {
                     </div> : null }
                     
                     {this.seerahBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "سيرة" : "Seerah"}</p> <a className="see-all" href="/seerah">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "سيرة" : "Seerah"}</p> <Link className="see-all" to={{
+                                pathname: `/seerah`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.seerahBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
@@ -175,7 +204,12 @@ class BookView extends React.Component {
                     </div> : null }
                     
                     {this.mutoonBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "متون" : "Mutoon"}</p> <a className="see-all" href="/mutoon">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "متون" : "Mutoon"}</p> <Link className="see-all" to={{
+                                pathname: `/mutoon`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.mutoonBooksArray().reverse().slice(0, 4)}
                     </Card.Group>
@@ -185,7 +219,12 @@ class BookView extends React.Component {
                     </div> : null }
                     
                     {this.arabicBooksArray().length > 0 ?
-                    <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عربية" : "Arabic"}</p> <a className="see-all" href="/arabic">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></a></span><br/>
+                            <div><span><p className="section-header">{(this.props.language === "عربى") || (this.props.language === "اردو") ? "عربية" : "Arabic"}</p> <Link className="see-all" to={{
+                                pathname: `/arabic`,
+                                state: {
+                                    language
+                                }
+                            }}>{(this.props.language === "عربى") || (this.props.language === "اردو") ? "انظر كل" : "See all"}<Icon name="angle right" /></Link></span><br/>
                     <Card.Group centered itemsPerRow={6}>
                         {this.arabicBooksArray().reverse().slice(0, 4)}
                     </Card.Group></div> : null }
