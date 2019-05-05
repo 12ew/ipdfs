@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import Login from './components/login';
 import { fetchAllBooks, getReauth } from './actions/index'
 import { connect } from 'react-redux';
-import BookView from './components/BookView';
+import BookView from './components/bookView';
 import AddBook from './components/addBook';
 import EditBook from './components/EditBook';
 import AddAuthor from './components/AddAuthor';
