@@ -153,7 +153,7 @@ class BookView extends React.Component {
 	render() {
 		const { language } = this.props.language;
 		return (
-			<div className="booksList allBooks">
+			<div className="booksList">
 				{this.props.searchTerm === '' ? (
 					<div>
 						{this.hadeethBooksArray().length > 0 ? (
