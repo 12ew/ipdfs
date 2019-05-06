@@ -165,7 +165,7 @@ span > p {
 }
 
 .search {
-  width: 120px;
+  width: 100px;
 }
 
 .ui.cards {
@@ -173,5 +173,23 @@ span > p {
     margin: 0 !important; 
     flex-wrap: wrap !important;
 }
+
+.nav-header {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto;
+}
+
+.ui.menu {
+  margin: 0 !important;
+  min-height: 4em;
+}
+
+.ui.menu .item {
+  padding: .9em .6em !important;
+}
+
 
 }
