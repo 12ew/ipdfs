@@ -18,6 +18,8 @@ import Arabic from './components/Arabic';
 import Mutoon from './components/Mutoon';
 import Seerah from './components/Seerah';
 import Tafseer from './components/Tafseer';
+import Women from './components/Women';
+import Children from './components/Children';
 
 class App extends Component {
     constructor(){
@@ -77,6 +79,8 @@ class App extends Component {
               <Route exact path="/tafseer" render={() => <Tafseer searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
               <Route exact path="/seerah" render={() => <Seerah searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
               <Route exact path="/arabic" render={() => <Arabic searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/women" render={() => <Women searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/children" render={() => <Children searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
 
             </div>
           </Switch>
