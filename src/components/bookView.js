@@ -27,7 +27,7 @@ class BookView extends React.Component {
 						book.genre.name === 'Aqeedah' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	aqeedahBooksArray = () => {
@@ -45,7 +45,7 @@ class BookView extends React.Component {
 						book.genre.name === 'Arabic' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	arabicBooksArray = () => {
@@ -63,7 +63,7 @@ class BookView extends React.Component {
 						book.genre.name === 'Seerah' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	seerahBooksArray = () => {
@@ -81,7 +81,7 @@ class BookView extends React.Component {
 						book.genre.name === 'Mutoon' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	mutoonBooksArray = () => {
@@ -98,7 +98,7 @@ class BookView extends React.Component {
 					return (
 						book.genre.name === 'Fiqh' && book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	fiqhBooksArray = () => {
@@ -116,7 +116,7 @@ class BookView extends React.Component {
 						book.genre.name === 'Hadeeth' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	hadeethBooksArray = () => {
@@ -134,7 +134,7 @@ class BookView extends React.Component {
 						book.genre.name === 'Tafseer' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	tafseerBooksArray = () => {
@@ -149,10 +149,9 @@ class BookView extends React.Component {
 			? null
 			: this.props.books.booksList.filter(book => {
 					return (
-						book.genre.name === 'Women' &&
-						book.language === this.props.language
+						book.genre.name === 'Women' && book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	womenBooksArray = () => {
@@ -170,11 +169,83 @@ class BookView extends React.Component {
 						book.genre.name === 'Children' &&
 						book.language === this.props.language
 					);
-			});
+			  });
 	};
 
 	childrenBooksArray = () => {
 		return this.childrenBooks().map(book => {
+			return <BookItem key={book.id} book={book} />;
+		});
+	};
+
+	// Adhkaar & Du'a books
+	adhkarDuaBooks = () => {
+		return this.props.books.booksList === []
+			? null
+			: this.props.books.booksList.filter(book => {
+					return (
+						book.genre.name === `Adhkaar & Du'a` &&
+						book.language === this.props.language
+					);
+			  });
+	};
+
+	adhkarDuaBooksArray = () => {
+		return this.adhkarDuaBooks().map(book => {
+			return <BookItem key={book.id} book={book} />;
+		});
+	};
+
+	// Az-Zuhd and Adab books
+	azhudAdabBooks = () => {
+		return this.props.books.booksList === []
+			? null
+			: this.props.books.booksList.filter(book => {
+					return (
+						book.genre.name === `Az-Zuhd & Adab` &&
+						book.language === this.props.language
+					);
+			  });
+	};
+
+	azhudAdabBooksArray = () => {
+		return this.azhudAdabBooks().map(book => {
+			return <BookItem key={book.id} book={book} />;
+		});
+	};
+
+	// Knowledge books
+	knowledgeBooks = () => {
+		return this.props.books.booksList === []
+			? null
+			: this.props.books.booksList.filter(book => {
+					return (
+						book.genre.name === `Knowledge` &&
+						book.language === this.props.language
+					);
+			  });
+	};
+
+	knowledgeBooksArray = () => {
+		return this.knowledgeBooks().map(book => {
+			return <BookItem key={book.id} book={book} />;
+		});
+	};
+
+	// General books
+	generalBooks = () => {
+		return this.props.books.booksList === []
+			? null
+			: this.props.books.booksList.filter(book => {
+					return (
+						book.genre.name === `General & Reminders` &&
+						book.language === this.props.language
+					);
+			  });
+	};
+
+	generalBooksArray = () => {
+		return this.generalBooks().map(book => {
 			return <BookItem key={book.id} book={book} />;
 		});
 	};
@@ -403,6 +474,41 @@ class BookView extends React.Component {
 							</div>
 						) : null}
 
+						{this.knowledgeBooksArray().length > 0 ? (
+							<div>
+								<span>
+									<p className="section-header">
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? 'علم'
+											: 'Knowledge'}
+									</p>{' '}
+									<Link
+										className="see-all"
+										to={{
+											pathname: `/knowledge`,
+											state: {
+												language
+											}
+										}}>
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? 'انظر كل'
+											: 'See all'}
+										<Icon name="angle right" />
+									</Link>
+								</span>
+								<br />
+								<Card.Group centered itemsPerRow={6}>
+									{this.knowledgeBooksArray()
+										.reverse()
+										.slice(0, 4)}
+								</Card.Group>
+
+								<Divider section />
+							</div>
+						) : null}
+
 						{this.arabicBooksArray().length > 0 ? (
 							<div>
 								<span>
@@ -430,6 +536,76 @@ class BookView extends React.Component {
 								<br />
 								<Card.Group centered itemsPerRow={6}>
 									{this.arabicBooksArray()
+										.reverse()
+										.slice(0, 4)}
+								</Card.Group>
+
+								<Divider section />
+							</div>
+						) : null}
+
+						{this.adhkarDuaBooksArray().length > 0 ? (
+							<div>
+								<span>
+									<p className="section-header">
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? 'أذكار و الدعاء'
+											: `Adhkaar & Du'a`}
+									</p>{' '}
+									<Link
+										className="see-all"
+										to={{
+											pathname: `/dua`,
+											state: {
+												language
+											}
+										}}>
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? 'انظر كل'
+											: 'See all'}
+										<Icon name="angle right" />
+									</Link>
+								</span>
+								<br />
+								<Card.Group centered itemsPerRow={6}>
+									{this.adhkarDuaBooksArray()
+										.reverse()
+										.slice(0, 4)}
+								</Card.Group>
+
+								<Divider section />
+							</div>
+						) : null}
+
+						{this.azhudAdabBooksArray().length > 0 ? (
+							<div>
+								<span>
+									<p className="section-header">
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? "الزهد و الأدب"
+											: `Az-Zuhd & Adab`}
+									</p>{' '}
+									<Link
+										className="see-all"
+										to={{
+											pathname: `/adab`,
+											state: {
+												language
+											}
+										}}>
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? 'انظر كل'
+											: 'See all'}
+										<Icon name="angle right" />
+									</Link>
+								</span>
+								<br />
+								<Card.Group centered itemsPerRow={6}>
+									{this.azhudAdabBooksArray()
 										.reverse()
 										.slice(0, 4)}
 								</Card.Group>
@@ -500,6 +676,39 @@ class BookView extends React.Component {
 								<br />
 								<Card.Group centered itemsPerRow={6}>
 									{this.childrenBooksArray()
+										.reverse()
+										.slice(0, 4)}
+								</Card.Group>
+							</div>
+						) : null}
+
+						{this.generalBooksArray().length > 0 ? (
+							<div>
+								<span>
+									<p className="section-header">
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? "عامة والتذكير"
+											: 'General & Reminders'}
+									</p>{' '}
+									<Link
+										className="see-all"
+										to={{
+											pathname: `/general`,
+											state: {
+												language
+											}
+										}}>
+										{this.props.language === 'عربى' ||
+										this.props.language === 'اردو'
+											? 'انظر كل'
+											: 'See all'}
+										<Icon name="angle right" />
+									</Link>
+								</span>
+								<br />
+								<Card.Group centered itemsPerRow={6}>
+									{this.generalBooksArray()
 										.reverse()
 										.slice(0, 4)}
 								</Card.Group>

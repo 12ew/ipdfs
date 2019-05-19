@@ -10,6 +10,10 @@
   margin-top: 20px;
 }
 
+.booksList {
+    margin-bottom: 10px;
+}
+
 .form {
   width: 60%;
   margin-left: auto;

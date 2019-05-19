@@ -20,6 +20,10 @@ import Seerah from './components/Seerah';
 import Tafseer from './components/Tafseer';
 import Women from './components/Women';
 import Children from './components/Children';
+import Knowledge from './components/Knowledge';
+import AdhkarDua from './components/AdhkarDua';
+import AzhudAdab from './components/AzhudAdab';
+import GeneralReminders from './components/GeneralReminders';
 
 class App extends Component {
     constructor(){
@@ -81,6 +85,10 @@ class App extends Component {
               <Route exact path="/arabic" render={() => <Arabic searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
               <Route exact path="/women" render={() => <Women searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
               <Route exact path="/children" render={() => <Children searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/knowledge" render={() => <Knowledge searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/dua" render={() => <AdhkarDua searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/adab" render={() => <AzhudAdab searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
+              <Route exact path="/general" render={() => <GeneralReminders searchTerm={this.state.searchTerm} filteredBooks={this.filteredBooks} language={this.state.selectedLanguage} />} />
 
             </div>
           </Switch>
