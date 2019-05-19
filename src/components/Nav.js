@@ -49,15 +49,21 @@ class Nav extends Component {
                             onClick={this.handleItemClick}
                             onMouseDown={this.props.language}
                         />
-                    <Dropdown item text='Categories' style={{ width: "100px" }}>
+                    <Dropdown classNmae="sections" item text='Categories' style={{ width: "100px"}} >
                             <Dropdown.Menu >
-                                <Link to="/aqeedah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عقيدة" : "Aqeedah"}</Dropdown.Item></Link>
+                            <Link to="/aqeedah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عقيدة" : "Aqeedah"}</Dropdown.Item></Link>
                                 <Link to="/hadeeth"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "حديث" : "Hadeeth"}</Dropdown.Item></Link>
                                 <Link to="/fiqh"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "فقه" : "Fiqh"}</Dropdown.Item></Link>
                                 <Link to="/tafseer"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "تفسير" : "Tafseer"}</Dropdown.Item></Link>
                                 <Link to="/seerah"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "سيرة" : "Seerah"}</Dropdown.Item></Link>
                                 <Link to="/mutoon"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "متون" : "Mutoon"}</Dropdown.Item></Link>
+                                <Link to="/knowledge"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "علم" : "Knowledge"}</Dropdown.Item></Link>
                                 <Link to="/arabic"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عربية" : "Arabic"}</Dropdown.Item></Link>
+                                <Link to="/dua"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "أذكار و الدعاء" : `Adhkaar & Du'a`}</Dropdown.Item></Link>
+                                <Link to="/adab"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "الزهد و الأدب" : `Az-Zuhd & Adab`}</Dropdown.Item></Link>
+                                <Link to="/women"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "نساء" : "Women"}</Dropdown.Item></Link>
+                                <Link to="/children"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "أطفال" : "Children"}</Dropdown.Item></Link>
+                                <Link to="/general"><Dropdown.Item>{(this.props.selectedLanguage === "عربى") || (this.props.selectedLanguage === "اردو") ? "عامة والتذكير" : "General & Reminders"}</Dropdown.Item></Link>
                             </Dropdown.Menu>
                         </Dropdown>
                     </Menu.Menu>

@@ -137,6 +137,10 @@ span > p {
   transform: scale(1.5); 
 }
 
+.ui.dropdown .menu {
+  font-size: 0.8em !important;
+}
+
 @media (max-width: 500px) {
   /* .nav-header {   
     flex-direction: column;

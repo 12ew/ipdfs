@@ -679,6 +679,8 @@ class BookView extends React.Component {
 										.reverse()
 										.slice(0, 4)}
 								</Card.Group>
+
+								<Divider section />
 							</div>
 						) : null}
 
