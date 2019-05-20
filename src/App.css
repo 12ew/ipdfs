@@ -137,14 +137,11 @@ span > p {
   transform: scale(1.5); 
 }
 
-.ui.dropdown .menu {
+/* .ui.dropdown .menu {
   font-size: 0.8em !important;
-}
+} */
 
 @media (max-width: 500px) {
-  /* .nav-header {   
-    flex-direction: column;
-  } */
 
   .zoom:hover {
   -ms-transform: scale(1.1); /* IE 9 */
@@ -201,5 +198,6 @@ span > p {
 
 .booksList {
     margin-top: 10px;
+    margin-bottom: 60px;
 }
 }
